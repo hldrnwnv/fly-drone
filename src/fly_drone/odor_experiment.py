@@ -9,7 +9,6 @@ from pathlib import Path
 
 import numpy as np
 
-from .chase import fly_chase
 from .odor_navigation import (MaleCNSOdorReadout, OdorHistoryController,
                               OdorWindController, WindFoodOdorPlume)
 
@@ -120,6 +119,8 @@ EVAL_CASES = (
 
 def run_case(case: OdorCase, *, mode: str, cast_angle: float,
              readout: MaleCNSOdorReadout | None, tracker: bool = False) -> dict:
+    from .chase import fly_chase
+
     wind = (-cos(case.wind_angle), -sin(case.wind_angle))
     plume = WindFoodOdorPlume(wind_xy=wind, phase_s=case.phase_s)
     source = (KalmanTargetSource(plume, seed=case.seed + 1000)

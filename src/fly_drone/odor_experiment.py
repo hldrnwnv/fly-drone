@@ -10,7 +10,8 @@ from pathlib import Path
 import numpy as np
 
 from .chase import fly_chase
-from .odor_navigation import MaleCNSOdorReadout, OdorHistoryController, WindFoodOdorPlume
+from .odor_navigation import (MaleCNSOdorReadout, OdorHistoryController,
+                              OdorWindController, WindFoodOdorPlume)
 
 
 @dataclass(frozen=True)
@@ -87,7 +88,7 @@ class KalmanTargetSource:
         self.observation_index += 1
         result = self.plume.sample(position_xy, yaw, source, time_s)
         result.update({"source_xy": source.tolist(),
-                       "source_error_m": float(np.linalg.norm(source - target)),
+                       "source_current_offset_m": float(np.linalg.norm(source - target)),
                        "tracker_measured": measured,
                        "tracker_measurement_xy": measurement.tolist()
                        if measured else None,
@@ -123,10 +124,15 @@ def run_case(case: OdorCase, *, mode: str, cast_angle: float,
     plume = WindFoodOdorPlume(wind_xy=wind, phase_s=case.phase_s)
     source = (KalmanTargetSource(plume, seed=case.seed + 1000)
               if tracker else plume)
-    if mode.startswith("neural"):
+    if mode.startswith("neural") or mode == "instant_neural":
         readout.reset(case.seed)
-    controller = OdorHistoryController(mode=mode, readout=readout,
-                                       cast_angle=cast_angle, seed=case.seed)
+    if mode.startswith("instant_"):
+        controller = OdorWindController(
+            mode="raw_odor" if mode == "instant_raw" else "neural_odor",
+            readout=readout)
+    else:
+        controller = OdorHistoryController(mode=mode, readout=readout,
+                                           cast_angle=cast_angle, seed=case.seed)
     run = fly_chase(controller, duration=12.0 if case.kind == "static" else 18.0,
                     odor_perception=source, speed_source="fixed",
                     fixed_speed_m_s=0.65, initial_xy=(0.0, case.initial_y),
@@ -142,9 +148,13 @@ def run_case(case: OdorCase, *, mode: str, cast_angle: float,
               "mean_decision_ms": run["decision_mean_ms"],
               "deadline_misses": run["decision_deadline_misses"]}
     if tracker:
-        errors = [obs["odor_sensor"]["source_error_m"]
-                  for obs in run["control_observations"]]
-        result["tracker_mean_error_m"] = float(np.mean(errors))
+        observations = run["control_observations"]
+        result["tracker_mean_current_offset_m"] = float(np.mean([
+            obs["odor_sensor"]["source_current_offset_m"] for obs in observations]))
+        result["tracker_mean_future_error_m"] = float(np.mean([
+            np.linalg.norm(np.asarray(obs["odor_sensor"]["source_xy"]) -
+                           np.asarray(case.pose(obs["t"] + 0.4)[0]))
+            for obs in observations]))
     return {"metrics": result, "run": run}
 
 
@@ -169,14 +179,15 @@ def run_experiment(output: Path) -> dict:
                  + records["train_moving_a"]["follow_fraction_after_4s"])
         tuning[str(cast_angle)] = {"score": score, "cases": records}
     chosen = max((0.45, 0.8), key=lambda angle: (tuning[str(angle)]["score"], -angle))
-    modes = ("wind_only", "raw_odor", "neural_odor", "neural_swapped")
+    modes = ("wind_only", "raw_odor", "neural_odor", "neural_swapped",
+             "instant_raw", "instant_neural")
     runs = {}
     evaluation = {}
     for case in EVAL_CASES:
         evaluation[case.name] = {"case": asdict(case), "modes": {}}
         for mode in modes:
             record = run_case(case, mode=mode, cast_angle=chosen,
-                              readout=readout if mode.startswith("neural") else None)
+                              readout=readout if "neural" in mode else None)
             evaluation[case.name]["modes"][mode] = record["metrics"]
             runs[f"{case.name}_{mode}"] = record["run"]
         print(f"History plume {case.name}: "
@@ -188,7 +199,7 @@ def run_experiment(output: Path) -> dict:
         tracker_results[case.name] = {}
         for mode in modes:
             record = run_case(case, mode=mode, cast_angle=chosen,
-                              readout=readout if mode.startswith("neural") else None,
+                              readout=readout if "neural" in mode else None,
                               tracker=True)
             tracker_results[case.name][mode] = record["metrics"]
             runs[f"tracker_{case.name}_{mode}"] = record["run"]

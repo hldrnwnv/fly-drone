@@ -73,7 +73,7 @@ class FoodOdorPlumeTests(unittest.TestCase):
                            for t in (0.0, 0.4, 0.8)])
         self.assertEqual(traces[0], traces[1])
         self.assertFalse(traces[0][1]["tracker_measured"])
-        self.assertGreater(traces[0][0]["source_error_m"], 0)
+        self.assertGreater(traces[0][0]["source_current_offset_m"], 0)
 
 
 if __name__ == "__main__":

@@ -24,7 +24,7 @@ Every research report must cite the sources found during the investigation, pref
 
 ## Neuron and Connectome Wiki
 
-For work involving neuron types, MaleCNS wiring, or neural responses, start at `docs/neuro-wiki/README.md` and `docs/neuro-wiki/Карта нейронов.md`. Read `docs/neuro-wiki/AGENTS.md` before adding or changing wiki content. After a neural experiment produces saved results, use the repository's `neuro-wiki-curator` skill in `.agents/skills/` to review them for wiki updates. The Obsidian wiki links connect notes; the source-scoped claims and relationship types live in `docs/neuro-wiki/claims.jsonl`. Follow the local evidence rules when recording a finding, and keep experiment receipts in `runs/` and flight outcomes in `docs/research-results.md`.
+For work involving neuron types, MaleCNS wiring, or neural responses, start at `docs/neuro-wiki/README.md` and `docs/neuro-wiki/Карта нейронов.md`. Read `docs/neuro-wiki/AGENTS.md` before adding or changing wiki content. After a neural experiment produces saved results, use the repository's `neuro-wiki-curator` skill in `.agents/skills/` to review them for wiki updates. The Obsidian wiki links connect notes; the source-scoped claims and relationship types live in `docs/neuro-wiki/claims.jsonl`. Before finishing any wiki edit, run `python3 scripts/check_neuro_wiki.py` with CUE installed; fix validation errors before committing. Follow the local evidence rules when recording a finding, and keep experiment receipts in `runs/` and flight outcomes in `docs/research-results.md`.
 
 ## Commit & Pull Request Guidelines
 

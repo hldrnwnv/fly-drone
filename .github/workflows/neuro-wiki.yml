@@ -1,0 +1,28 @@
+name: Validate neuron wiki
+
+on:
+  pull_request:
+    paths:
+      - '.agents/skills/neuro-wiki-curator/**'
+      - '.github/workflows/neuro-wiki.yml'
+      - 'AGENTS.md'
+      - 'docs/neuro-wiki/**'
+      - 'scripts/check_neuro_wiki.py'
+  push:
+    branches: [main]
+    paths:
+      - '.agents/skills/neuro-wiki-curator/**'
+      - '.github/workflows/neuro-wiki.yml'
+      - 'AGENTS.md'
+      - 'docs/neuro-wiki/**'
+      - 'scripts/check_neuro_wiki.py'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cue-lang/setup-cue@v1.0.0
+        with:
+          version: v0.17.1
+      - run: python3 scripts/check_neuro_wiki.py

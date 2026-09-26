@@ -16,23 +16,39 @@ import numpy as np
 def render(run_dir: Path) -> None:
     map_report = json.loads((run_dir / "map.json").read_text(encoding="utf-8"))
     trials = json.loads((run_dir / "results.json").read_text(encoding="utf-8"))["trials"]
+    grating_trials = json.loads((run_dir / "grating" / "results.json").read_text(encoding="utf-8"))["trials"]
     seeds = sorted({t["seed"] for t in trials})
+    n_seeds = len(seeds)
     lookup = {(t["seed"], t["mode"], t["eye"], t["stimulus"]): t for t in trials}
 
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10,
                          "svg.fonttype": "none", "svg.hashsalt": "retina-2d"})
     fig = plt.figure(figsize=(13, 12), facecolor="#f7f9fc")
-    grid = fig.add_gridspec(3, 2, height_ratios=[0.7, 2.2, 4.1],
+    grid = fig.add_gridspec(3, 2, height_ratios=[0.9, 2.2, 4.1],
                            hspace=0.62, wspace=0.30, left=0.11, right=0.97,
                            top=0.95, bottom=0.08)
     title = fig.add_subplot(grid[0, :])
     title.axis("off")
-    title.text(0, 0.85, "MaleCNS v1.0: проверка двумерного зрительного входа",
+    title.text(0, 0.88, "MaleCNS v1.0: проверка двумерного зрительного входа",
                fontsize=18, fontweight="bold", color="#102a43")
-    title.text(0, 0.4, "Таблица колонок → карта рецепторов → 2D / прежний 1D вход → одинаковые кадры и 12 новых зерен",
+    title.text(0, 0.61, f"Таблица колонок → карта рецепторов → 2D / прежний 1D вход → одинаковые кадры и {n_seeds} новых зерен",
                fontsize=11, color="#334e68")
-    title.text(0, 0.05, "Условия: пустой кадр, равномерная яркость, неподвижная полоса, движение ← и →; каждый глаз отдельно",
+    title.text(0, 0.36, "Условия: пустой кадр, равномерная яркость, неподвижная полоса, движение ← и →; каждый глаз отдельно",
                fontsize=10, color="#52667a")
+    grating_lookup = {(t["seed"], t["stimulus"]): t for t in grating_trials
+                      if t["mode"] == "2d" and t["eye"] == "R"}
+    consistent = []
+    for contrast in ("high", "low"):
+        count = sum(grating_lookup[(seed, f"left_to_right_{contrast}")]["T4_T5_spikes"]["T4b_R"] >
+                    grating_lookup[(seed, f"right_to_left_{contrast}")]["T4_T5_spikes"]["T4b_R"]
+                    for seed in seeds)
+        consistent.append(count)
+    bar_count = sum(lookup[(seed, "2d", "R", "left_to_right")]["T4_T5_spikes"]["T4b_R"] >
+                    lookup[(seed, "2d", "R", "right_to_left")]["T4_T5_spikes"]["T4b_R"]
+                    for seed in seeds)
+    title.text(0, 0.10,
+               f"Проверка T4b_R: полоса {bar_count}/{n_seeds}, решётка с общим первым кадром {consistent[0]}/{n_seeds} и {consistent[1]}/{n_seeds} (высокий/низкий контраст)",
+               fontsize=10, fontweight="bold", color="#9c2f20")
 
     coverage = fig.add_subplot(grid[1, 0], facecolor="white")
     palette = {"direct": "#1971c2", "inferred_l1": "#e67700", "unmapped": "#868e96"}
@@ -93,7 +109,7 @@ def render(run_dir: Path) -> None:
     direction.set_yticks(y, groups)
     direction.invert_yaxis()
     direction.set_xlabel("Спайки слева→вправо минус справа→влево за 50 тактов")
-    direction.set_title("Разница направлений по типу клеток и глазу; n=12 парных зерен",
+    direction.set_title(f"Разница направлений по типу клеток и глазу; n={n_seeds} парных зерен",
                         loc="left", fontweight="bold")
     direction.legend(frameon=False, loc="lower right", bbox_to_anchor=(1, 1.01), ncol=2)
     direction.grid(axis="x", color="#e9ecef")

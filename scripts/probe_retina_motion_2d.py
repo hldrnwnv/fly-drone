@@ -42,7 +42,8 @@ def stimuli() -> dict[str, np.ndarray]:
     }
 
 
-def run(output: Path, map_path: Path, data: Path, first_seed: int, seeds: int) -> None:
+def run(output: Path, map_path: Path, data: Path, first_seed: int, seeds: int,
+        movies: dict[str, np.ndarray] | None = None) -> None:
     if seeds <= 0:
         raise ValueError("seeds must be positive")
     with np.load(map_path) as saved:
@@ -57,7 +58,11 @@ def run(output: Path, map_path: Path, data: Path, first_seed: int, seeds: int) -
         raise ValueError("saved map and loaded brain neuron IDs differ")
     two_d = RetinaProjector2D(xy, side)
     one_d = RetinaProjector(azimuth)
-    movies = stimuli()
+    movies = stimuli() if movies is None else movies
+    names_of_stimuli = tuple(movies)
+    if any(images.shape != (N_FRAMES, HEIGHT, WIDTH, 3) or images.dtype != np.uint8
+           for images in movies.values()):
+        raise ValueError("each stimulus must be 50 RGB uint8 frames of size 64x64")
     input_arrays = {}
     background = np.full(len(brain.visual), BACKGROUND / 255, dtype=np.float32)
     for mode in ("2d", "1d"):
@@ -93,7 +98,7 @@ def run(output: Path, map_path: Path, data: Path, first_seed: int, seeds: int) -
     for seed in range(first_seed, first_seed + seeds):
         for mode in ("2d", "1d"):
             for eye in "LR":
-                for name in STIMULI:
+                for name in names_of_stimuli:
                     drives = input_arrays[f"{mode}_{eye}_{name}"]
                     brain.reset(seed)
                     for _ in range(10):
@@ -130,7 +135,7 @@ def run(output: Path, map_path: Path, data: Path, first_seed: int, seeds: int) -
     (output / "results.json").write_text(json.dumps({
         "protocol": "50 20 ms movie ticks after 10 blank ticks; same reset noise seed per condition",
         "first_seed": first_seed, "seeds": seeds,
-        "controls": list(STIMULI),
+        "controls": list(names_of_stimuli),
         "modes": {"2d": "source located columns; unlocated receptors held at background",
                   "1d": "original flybrain azimuth projector on identical RGB frames"},
         "eyes": "only named eye stimulated; other eye receives constant background",

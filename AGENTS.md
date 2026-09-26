@@ -16,6 +16,10 @@ Use four-space indentation, type hints for public functions, `snake_case` for Py
 
 Name test files `test_*.py` and test methods `test_*`. Tests cover geometry, command limits, camera bearings, gate crossing, and moving-target pursuit without downloading the connectome. For neural changes, inspect `results.json`: compare held-out accuracy, gate success or pursuit time, open-loop decisions on identical observations, and decision latency. Keep image processing, neural steering, and speed control distinct; one successful flight is not general proof.
 
+## Research Questions & GitHub Issues
+
+Track open questions in [GitHub Issues](https://github.com/hldrnwnv/fly-drone/issues) and link them from `docs/research-results.md`. Before experiments, reuse or create an issue stating the baseline, hypothesis, controls, held-out conditions, and artifacts. Save methods, traces, and negative results in `runs/`; update the issue and summary. Close only after the stated check is documented, including a failed hypothesis.
+
 ## Commit & Pull Request Guidelines
 
 Use short imperative commit subjects, such as `Add DNa02 steering readout`. Pull requests should explain the changed behavior, list commands run, and include a replay or key metrics for simulation changes. Link an issue when applicable.

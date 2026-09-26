@@ -1,0 +1,128 @@
+{
+  "question": "Can female facet rays be assigned to MaleCNS v1.0 receptor body IDs?",
+  "status": "registration_not_validated; neural test gated",
+  "source_commit": "99d2a43123db636cedb55af9ff31a59657e7d17e",
+  "source_files_sha256": {
+    "data/microCT/20240701.RData": "8408447f8c5798fbc6d751de79ef4983d08c342a500c9a55b2a3b4b38d92deec",
+    "data/eyemap.RData": "c3f63c69afdc3f381cdafabb1d376b8e25ec5a71bce67550ae42fcdd79cf618e",
+    "proc_eyemap.R": "35c0d8d48a67ea6bd11237464f01a6e87f13146e07baef7ad863ec1e8795df6d",
+    "proc_uCT.R": "ba96990c55887a5e046323f5ea6e58e676f92de5909c0ef08ba10a4bc9acf65f"
+  },
+  "malecns_files_sha256": {
+    "raw/optic-columns.xlsx": "d4af1cacb751036f7e84bfecc9bec79ca010066ac066559c29b566003ec080d3",
+    "brain.npz": "cc9bd1ecd00bd703a6fa648bc6ad145c93c7c1ee53debdcc9ce0d1f4305e6aca",
+    "weights.npz": "c29919aa44069a271b1ee978abe05fa9bf6e45e4ba3e436e92b624ef1b5be40c"
+  },
+  "existing_map_sha256": "a224fe3afb3fa99ee2f4080ad7bf909b3788e787ffc613ce8dea874a71b000f8",
+  "published_eye": {
+    "specimen": "female whole-head microCT; published eye-to-FAFB match is right eye",
+    "facets_by_eye": {
+      "L": 857,
+      "R": 852
+    },
+    "published_right_eye_grid": 852,
+    "published_right_eye_to_fafb_pairs": 778,
+    "neighbor_sensitivity_degrees": {
+      "definition": "great-circle separation of adjacent matched right-eye rays; one illustrative grid-step misregistration, not a measured MaleCNS error",
+      "n_edges": 2228,
+      "median": 4.756,
+      "p05": 3.661,
+      "p95": 6.961
+    }
+  },
+  "male_workbook": {
+    "R": {
+      "columns": 892,
+      "dorsal_rim_columns": 42,
+      "fields": [
+        "column",
+        "L1",
+        "R7",
+        "R7_type",
+        "R8",
+        "R8_type",
+        "column_type",
+        "aMe12_branch",
+        "Tm5a_branch",
+        "Notes"
+      ],
+      "measured_facet_ray_field": false,
+      "equator_or_meridian_correspondence_field": false
+    },
+    "L": {
+      "columns": 880,
+      "dorsal_rim_columns": 40,
+      "fields": [
+        "column",
+        "L1",
+        "R7",
+        "R7_type",
+        "R8",
+        "R8_type",
+        "column_type",
+        "aMe12_branch",
+        "Tm5a_branch",
+        "Notes"
+      ],
+      "measured_facet_ray_field": false,
+      "equator_or_meridian_correspondence_field": false
+    }
+  },
+  "male_map": {
+    "receptors_total": 6006,
+    "by_eye": {
+      "L": {
+        "receptors_total": 2345,
+        "direct_column_receptors": 1233,
+        "inferred_l1_receptors": 1084,
+        "unmapped_receptors": 28,
+        "distinct_located_columns": 669,
+        "validated_optical_rays": 0
+      },
+      "R": {
+        "receptors_total": 3661,
+        "direct_column_receptors": 1395,
+        "inferred_l1_receptors": 2153,
+        "unmapped_receptors": 113,
+        "distinct_located_columns": 761,
+        "validated_optical_rays": 0
+      }
+    },
+    "optical_registration": "unavailable: no validated MaleCNS-to-facet landmarks or body-ID correspondence",
+    "angular_residual_degrees": null,
+    "peripheral_uncertainty_degrees": null
+  },
+  "camera": {
+    "resolution_pixels": [
+      320,
+      180
+    ],
+    "position_m_in_quad_frame": [
+      0.102,
+      0.0,
+      0.045
+    ],
+    "vertical_fov_degrees": 95.0,
+    "horizontal_fov_degrees": 125.464,
+    "focal_length_pixels": 82.47,
+    "right_in_quad_frame": [
+      0.0,
+      -1.0,
+      0.0
+    ],
+    "up_in_quad_frame": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "forward_in_quad_frame": [
+      1.0,
+      -0.0,
+      -0.0
+    ],
+    "pixel_ray_formula": "normalize([1, -(u-W/2)/f, (H/2-v)/f]) in quad frame; pixel centers u,v; f=H/(2*tan(fovy/2))",
+    "unknown_transform": "quad frame to male head/eye coordinates"
+  },
+  "neural_held_out_tests": 0,
+  "controls_and_held_out": "not run because no admissible source-to-MaleCNS registration"
+}

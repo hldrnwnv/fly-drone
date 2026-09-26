@@ -1,0 +1,276 @@
+{
+  "status": "exploratory_grid_candidates_only; optical residual and camera pose unvalidated",
+  "selection": "enumerate 12 hex-lattice symmetries and integer shifts within ±8 of the centroid difference; require at least 95% source facet overlap, all MaleCNS DRA columns matched to measured rays with positive dorsal z; rank by overlap only",
+  "selection_uses_neural_responses": false,
+  "source_files_sha256": {
+    "data/microCT/20240701.RData": "8408447f8c5798fbc6d751de79ef4983d08c342a500c9a55b2a3b4b38d92deec",
+    "data/microCT/20240701_nb.RData": "3d4e34ff61ae7066fce7e18a0e229d7dfbab75ab8b6ab8c64a4017470428c049",
+    "data/eyemap.RData": "c3f63c69afdc3f381cdafabb1d376b8e25ec5a71bce67550ae42fcdd79cf618e",
+    "proc_eyemap.R": "35c0d8d48a67ea6bd11237464f01a6e87f13146e07baef7ad863ec1e8795df6d",
+    "proc_uCT.R": "ba96990c55887a5e046323f5ea6e58e676f92de5909c0ef08ba10a4bc9acf65f"
+  },
+  "male_files_sha256": {
+    "raw/optic-columns.xlsx": "d4af1cacb751036f7e84bfecc9bec79ca010066ac066559c29b566003ec080d3",
+    "brain.npz": "cc9bd1ecd00bd703a6fa648bc6ad145c93c7c1ee53debdcc9ce0d1f4305e6aca",
+    "weights.npz": "c29919aa44069a271b1ee978abe05fa9bf6e45e4ba3e436e92b624ef1b5be40c"
+  },
+  "male_annotation_audit": {
+    "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather",
+    "sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+    "counts": {
+      "L1": {
+        "total": 1776,
+        "both_hex_coordinates": 1767
+      },
+      "T4a": {
+        "total": 1684,
+        "both_hex_coordinates": 0
+      },
+      "T4b": {
+        "total": 1690,
+        "both_hex_coordinates": 0
+      },
+      "T5a": {
+        "total": 1664,
+        "both_hex_coordinates": 0
+      },
+      "T5b": {
+        "total": 1715,
+        "both_hex_coordinates": 0
+      }
+    }
+  },
+  "source_grid_to_male_grid": "[hex1,hex2]^T = A [female_q,female_p]^T + shift",
+  "candidate_count_by_eye": {
+    "L": 3,
+    "R": 3
+  },
+  "candidates": {
+    "L": [
+      {
+        "eye": "L",
+        "symmetry_id": 7,
+        "a11": 0,
+        "a12": 1,
+        "a21": 1,
+        "a22": 0,
+        "shift_q": 19,
+        "shift_p": 19,
+        "overlap_columns": 853,
+        "source_facets": 857,
+        "male_columns": 880,
+        "dra_present": 40,
+        "dra_positive_z": 40,
+        "dra_total": 40,
+        "accepted_exploratory": true
+      },
+      {
+        "eye": "L",
+        "symmetry_id": 7,
+        "a11": 0,
+        "a12": 1,
+        "a21": 1,
+        "a22": 0,
+        "shift_q": 19,
+        "shift_p": 20,
+        "overlap_columns": 841,
+        "source_facets": 857,
+        "male_columns": 880,
+        "dra_present": 40,
+        "dra_positive_z": 40,
+        "dra_total": 40,
+        "accepted_exploratory": true
+      },
+      {
+        "eye": "L",
+        "symmetry_id": 7,
+        "a11": 0,
+        "a12": 1,
+        "a21": 1,
+        "a22": 0,
+        "shift_q": 20,
+        "shift_p": 20,
+        "overlap_columns": 833,
+        "source_facets": 857,
+        "male_columns": 880,
+        "dra_present": 40,
+        "dra_positive_z": 40,
+        "dra_total": 40,
+        "accepted_exploratory": true
+      }
+    ],
+    "R": [
+      {
+        "eye": "R",
+        "symmetry_id": 7,
+        "a11": 0,
+        "a12": 1,
+        "a21": 1,
+        "a22": 0,
+        "shift_q": 19,
+        "shift_p": 20,
+        "overlap_columns": 844,
+        "source_facets": 852,
+        "male_columns": 892,
+        "dra_present": 42,
+        "dra_positive_z": 42,
+        "dra_total": 42,
+        "accepted_exploratory": true
+      },
+      {
+        "eye": "R",
+        "symmetry_id": 7,
+        "a11": 0,
+        "a12": 1,
+        "a21": 1,
+        "a22": 0,
+        "shift_q": 19,
+        "shift_p": 21,
+        "overlap_columns": 830,
+        "source_facets": 852,
+        "male_columns": 892,
+        "dra_present": 42,
+        "dra_positive_z": 42,
+        "dra_total": 42,
+        "accepted_exploratory": true
+      },
+      {
+        "eye": "R",
+        "symmetry_id": 7,
+        "a11": 0,
+        "a12": 1,
+        "a21": 1,
+        "a22": 0,
+        "shift_q": 20,
+        "shift_p": 21,
+        "overlap_columns": 821,
+        "source_facets": 852,
+        "male_columns": 892,
+        "dra_present": 42,
+        "dra_positive_z": 42,
+        "dra_total": 42,
+        "accepted_exploratory": true
+      }
+    ]
+  },
+  "dorsal_inverted_shape_controls": {
+    "L": {
+      "eye": "L",
+      "symmetry_id": 4,
+      "a11": 0,
+      "a12": -1,
+      "a21": -1,
+      "a22": 0,
+      "shift_q": 19,
+      "shift_p": 20,
+      "overlap_columns": 838,
+      "source_facets": 857,
+      "male_columns": 880,
+      "dra_present": 38,
+      "dra_positive_z": 0,
+      "dra_total": 40,
+      "accepted_exploratory": false
+    },
+    "R": {
+      "eye": "R",
+      "symmetry_id": 4,
+      "a11": 0,
+      "a12": -1,
+      "a21": -1,
+      "a22": 0,
+      "shift_q": 19,
+      "shift_p": 20,
+      "overlap_columns": 836,
+      "source_facets": 852,
+      "male_columns": 892,
+      "dra_present": 39,
+      "dra_positive_z": 0,
+      "dra_total": 42,
+      "accepted_exploratory": false
+    }
+  },
+  "map_stats": {
+    "L": {
+      "ranked_coverage": [
+        {
+          "rank": 1,
+          "matched_male_columns": 853,
+          "matched_receptors": 2283,
+          "matched_direct_receptors": 1233,
+          "matched_inferred_l1_receptors": 1050
+        },
+        {
+          "rank": 2,
+          "matched_male_columns": 841,
+          "matched_receptors": 2313,
+          "matched_direct_receptors": 1231,
+          "matched_inferred_l1_receptors": 1082
+        },
+        {
+          "rank": 3,
+          "matched_male_columns": 833,
+          "matched_receptors": 2263,
+          "matched_direct_receptors": 1207,
+          "matched_inferred_l1_receptors": 1056
+        }
+      ],
+      "candidate_angle_span_degrees": {
+        "definition": "maximum pairwise great-circle angle among accepted exploratory registrations, where every candidate maps a MaleCNS column; not error against a male measurement",
+        "interior": {
+          "n_columns": 769,
+          "median_deg": 5.319,
+          "p95_deg": 7.722,
+          "max_deg": 11.096
+        },
+        "boundary": {
+          "n_columns": 34,
+          "median_deg": 6.568,
+          "p95_deg": 9.8,
+          "max_deg": 11.226
+        }
+      },
+      "columns_missing_in_at_least_one_candidate": 77
+    },
+    "R": {
+      "ranked_coverage": [
+        {
+          "rank": 1,
+          "matched_male_columns": 844,
+          "matched_receptors": 3487,
+          "matched_direct_receptors": 1391,
+          "matched_inferred_l1_receptors": 2096
+        },
+        {
+          "rank": 2,
+          "matched_male_columns": 830,
+          "matched_receptors": 3491,
+          "matched_direct_receptors": 1358,
+          "matched_inferred_l1_receptors": 2133
+        },
+        {
+          "rank": 3,
+          "matched_male_columns": 821,
+          "matched_receptors": 3423,
+          "matched_direct_receptors": 1333,
+          "matched_inferred_l1_receptors": 2090
+        }
+      ],
+      "candidate_angle_span_degrees": {
+        "definition": "maximum pairwise great-circle angle among accepted exploratory registrations, where every candidate maps a MaleCNS column; not error against a male measurement",
+        "interior": {
+          "n_columns": 762,
+          "median_deg": 5.41,
+          "p95_deg": 7.883,
+          "max_deg": 11.286
+        },
+        "boundary": {
+          "n_columns": 29,
+          "median_deg": 7.736,
+          "p95_deg": 9.608,
+          "max_deg": 10.267
+        }
+      },
+      "columns_missing_in_at_least_one_candidate": 101
+    }
+  }
+}

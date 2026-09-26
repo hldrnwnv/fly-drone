@@ -1,0 +1,10 @@
+{
+  "episodes": 20,
+  "controllers": 5,
+  "training_frames_verified": 96,
+  "validation_frames_verified": 32,
+  "open_loop_frames_verified": 244,
+  "dropout_markers": 33,
+  "same_first_frame_and_pose": true,
+  "distinct_graph_hashes": true
+}

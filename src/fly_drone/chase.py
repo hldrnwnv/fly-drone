@@ -162,7 +162,10 @@ def fly_chase(controller, *, duration: float = 18.0, decision_interval: float = 
                         observation["visual_flow_valid"] = visual_features.flow_xy_px is not None
                     else:
                         if odor_sample is not None:
-                            odor_result = controller(observation["bearing"], odor_sample)
+                            controller_sample = {key: odor_sample[key]
+                                                 for key in ("L", "R", "upwind_bearing",
+                                                             "tag_visible") if key in odor_sample}
+                            odor_result = controller(observation["bearing"], controller_sample)
                             if len(odor_result) == 3:
                                 wanted_yaw, odor_speed, odor_input = odor_result
                             else:

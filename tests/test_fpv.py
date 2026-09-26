@@ -53,6 +53,26 @@ class FPVPhysicsTests(unittest.TestCase):
         self.assertGreater(result["visible_decisions"] / result["total_decisions"], 0.9)
         self.assertGreater(result["trace"][-1]["cow_position"][0], 12.0)
 
+    def test_tracker_diagnostics_do_not_reach_odor_controller(self):
+        from fly_drone.chase import fly_chase
+
+        class DiagnosticPlume:
+            def sample(self, *_args):
+                return {"L": 0.1, "R": 0.2, "upwind_bearing": 0.0,
+                        "source_xy": [99.0, 99.0]}
+
+        received = []
+
+        def controller(_bearing, sample):
+            received.append(sample.copy())
+            return 0.0, {}
+
+        result = fly_chase(controller, duration=0.4,
+                           odor_perception=DiagnosticPlume(), speed_source="fixed")
+        self.assertEqual(received, [{"L": 0.1, "R": 0.2, "upwind_bearing": 0.0}])
+        self.assertEqual(result["control_observations"][0]["odor_sensor"]["source_xy"],
+                         [99.0, 99.0])
+
 
 if __name__ == "__main__":
     unittest.main()

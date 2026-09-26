@@ -1,0 +1,24 @@
+{
+  "source_readme": "https://github.com/flyconnectome/2025malecns/blob/main/README_RELEASE_BUCKET.md#volumes",
+  "sample_method": "https://www.nature.com/articles/s41586-025-08746-0",
+  "inspection_method": "Manual visual inspection of three published overview JPG images; source method states the CNS was extracted intact before X-ray CT.",
+  "observed": "Overview images show extracted CNS; intact compound-eye lens surface is not present.",
+  "limitation": "Overview images alone do not prove the absence of every retinal tissue fragment in the full stack, but the dissection method rules out whole-head facet geometry.",
+  "files": [
+    {
+      "object": "gs://flyem-male-cns/micro-ct/Z0720-07 luz g-/Z0720-07 orient.JPG",
+      "size_bytes": 299383,
+      "sha256": "3e4a8f875bc7e36e358156157a37bdefa1165759f4aed7e4c9e05e62fbe0e7c8"
+    },
+    {
+      "object": "gs://flyem-male-cns/micro-ct/Z0720-07 luz g-/Z0720-07 orient2.JPG",
+      "size_bytes": 324892,
+      "sha256": "7784d6d364c7e3eb09a120b6221cafd7b78b6b1831e0184fb4ae5e3ee8614443"
+    },
+    {
+      "object": "gs://flyem-male-cns/micro-ct/Z0720-07 luz g-/Z0720-07 ant stretch.JPG",
+      "size_bytes": 301192,
+      "sha256": "05c73abb76ec518ed71317d0c607cda1f6d9a105c7648f78aae64b20cc352b85"
+    }
+  ]
+}

@@ -18,7 +18,9 @@ Name test files `test_*.py` and test methods `test_*`. Tests cover geometry, com
 
 ## Research Questions & GitHub Issues
 
-Track open questions in [GitHub Issues](https://github.com/hldrnwnv/fly-drone/issues) and link them from `docs/research-results.md`. Before experiments, reuse or create an issue stating the baseline, hypothesis, controls, held-out conditions, and artifacts. Save methods, traces, and negative results in `runs/`; update the issue and summary. Close only after the stated check is documented, including a failed hypothesis.
+Track open questions in [GitHub Issues](https://github.com/hldrnwnv/fly-drone/issues) and link them from `docs/research-results.md`. Before experiments, reuse or create an issue stating the baseline, hypothesis, controls, held-out conditions, and artifacts. Save methods, traces, and negative results in `runs/`; update the issue and summary. After each research step, comment on its issue with the exact files or code changed, experiment commands, conditions, observed metrics, interpretation, and remaining work. Update the issue status automatically: close it when every stated check and its result are documented, including a failed hypothesis; leave it open with an explicit remaining check when incomplete, and reopen it if later evidence invalidates closure.
+
+Every research report must cite the sources found during the investigation, preferably the original dataset, paper, or maintainer documentation for each substantive external claim. Record dataset version and file hashes when they affect reproducibility; distinguish source facts, implementation choices, observations, and interpretations. Include an infographic in every research report and link or embed it beside the relevant results. The infographic must show the experiment's inputs, controls, and key outcomes, label units and sample counts, remain legible without color alone, and be generated from saved data with its source code retained. Report negative and inconclusive results in the same way as positive ones.
 
 ## Commit & Pull Request Guidelines
 

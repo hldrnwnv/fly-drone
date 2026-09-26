@@ -1,3 +1,4 @@
+import hashlib
 import importlib.util
 import unittest
 
@@ -42,6 +43,26 @@ class FPVPhysicsTests(unittest.TestCase):
         self.assertEqual(result["status"], "passed_gate")
         self.assertTrue(any(obs["reason"] == "dropout" for obs in result["control_observations"]))
         self.assertEqual(result["decision_budget_ms"], 400)
+
+    def test_rgb_controller_receives_frames_without_detector_angle(self):
+        from fly_drone.fpv import TARGETS, fly_fpv
+        from fly_drone.vision import GateVision
+
+        received = []
+
+        def controller(frame):
+            received.append(frame)
+            return 0.0
+
+        with GateVision("left", include_frame=True, detect=False) as sensor:
+            result = fly_fpv(controller, TARGETS["left"], sensor=sensor,
+                             duration=0.8, frame_input=True, visible_gate="left")
+        self.assertEqual(len(received), 2)
+        self.assertTrue(all(frame.shape == (180, 320, 3) for frame in received))
+        self.assertTrue(all("frame" not in obs for obs in result["control_observations"]))
+        self.assertTrue(all(obs["reason"] == "raw_frame" for obs in result["control_observations"]))
+        self.assertEqual(result["control_observations"][0]["frame_sha256"],
+                         hashlib.sha256(received[0].tobytes()).hexdigest())
 
     def test_moving_target_is_seen_and_followed_by_geometry(self):
         from fly_drone.chase import fly_chase

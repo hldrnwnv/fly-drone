@@ -28,7 +28,10 @@ class QuadState:
 
 
 class FPVQuad:
-    def __init__(self, *, show_cow: bool = False, show_gates: bool = True):
+    def __init__(self, *, show_cow: bool = False, show_gates: bool = True,
+                 visible_gate: str | None = None):
+        if visible_gate not in (None, "left", "right"):
+            raise ValueError("visible_gate must be left, right, or None")
         self.model = mujoco.MjModel.from_xml_path(str(MODEL_PATH))
         self.data = mujoco.MjData(self.model)
         self.cow_mocap_id = int(self.model.body_mocapid[
@@ -37,7 +40,9 @@ class FPVQuad:
             name = mujoco.mj_id2name(self.model, mujoco.mjtObj.mjOBJ_GEOM, geom_id) or ""
             if name.startswith("cow_"):
                 self.model.geom_rgba[geom_id, 3] = float(show_cow)
-            elif name.startswith(("left_", "right_")) and not show_gates:
+            elif name.startswith(("left_", "right_")) and (
+                    not show_gates or (visible_gate is not None and
+                                       not name.startswith(visible_gate + "_"))):
                 self.model.geom_rgba[geom_id, 3] = 0.0
         mujoco.mj_forward(self.model, self.data)
         self.dt = float(self.model.opt.timestep)
@@ -104,8 +109,10 @@ class Stabilizer:
 
 def fly_fpv(controller, target: tuple[float, float, float], *, duration: float = 14.0,
             brain_interval: float = 0.4, sensor=None,
-            initial_xy: tuple[float, float] = (0.0, 0.0), initial_yaw: float = 0.0) -> dict:
-    quad = FPVQuad()
+            initial_xy: tuple[float, float] = (0.0, 0.0), initial_yaw: float = 0.0,
+            frame_input: bool = False, frame_sink=None,
+            visible_gate: str | None = None) -> dict:
+    quad = FPVQuad(visible_gate=visible_gate)
     quad.data.qpos[:2] = initial_xy
     quad.data.qpos[3:7] = [cos(initial_yaw / 2), 0, 0, sin(initial_yaw / 2)]
     mujoco.mj_forward(quad.model, quad.data)
@@ -142,9 +149,12 @@ def fly_fpv(controller, target: tuple[float, float, float], *, duration: float =
                                             target[0] - state.position[0]) - state.yaw)
             observation = (sensor.observe(quad, target, controller_calls) if sensor is not None else
                            {"bearing": true_bearing, "visible": True, "reason": "state_sensor"})
+            if frame_sink is not None:
+                frame_sink(observation.get("frame"))
+            frame = observation.pop("frame", None)
             bearing = observation["bearing"]
             start = perf_counter()
-            command = float(np.clip(controller(bearing), -1.0, 1.0))
+            command = float(np.clip(controller(frame if frame_input else bearing), -1.0, 1.0))
             controller_wall_s += perf_counter() - start
             decision_ms = 1000 * (perf_counter() - decision_start)
             decision_wall_s += decision_ms / 1000

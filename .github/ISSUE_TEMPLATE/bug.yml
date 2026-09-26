@@ -1,0 +1,46 @@
+name: Ошибка в коде или симуляции
+description: Воспроизводимый дефект с наблюдаемым и ожидаемым поведением
+labels: [bug]
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+      description: Укажите точную команду, входные данные, сид и условия запуска, если они влияют на результат.
+      placeholder: "1. Запустить ...\n2. Открыть ...\n3. Увидеть ..."
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Наблюдаемое поведение
+      placeholder: Ошибка, неверное значение или ссылка на сохранённую трассу.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемое поведение
+      placeholder: Какой результат должен получиться и на чём основано это ожидание?
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Среда и версия
+      placeholder: Commit, Python, ОС, версия модели или данных, включённые extras.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Логи и артефакты
+      description: Приложите минимальный пример и уберите секреты и личные данные.
+      placeholder: Ссылки на traceback, results.json, траекторию или видео.
+  - type: textarea
+    id: completion
+    attributes:
+      label: Проверка исправления
+      placeholder: Как воспроизвести сбой до исправления и подтвердить результат после него?
+    validations:
+      required: true

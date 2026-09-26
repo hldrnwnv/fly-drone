@@ -1,0 +1,21 @@
+{
+  "dataset": "MaleCNS v1.0 via flybrain 0.1.0",
+  "workbook_url": "https://raw.githubusercontent.com/flyconnectome/2025malecns/67767d2233657983993ff6c2be48e836a935863c/supplemental_data/optic-column-type-assignments-v1.0.xlsx",
+  "workbook_sha256": "d4af1cacb751036f7e84bfecc9bec79ca010066ac066559c29b566003ec080d3",
+  "coordinates": "source hex1/hex2 columns; x=hex1-hex2, y=-(hex1+hex2), normalized within eye",
+  "inference": "R1-6: strongest same-side annotated L1 partner in flybrain normalized graph; withhold within 5 percent top tie",
+  "limits": "L1 column is an inferred sampling locus, not the R1-6 ommatidium or an angular optical axis; physical camera orientation and degrees per pixel uncalibrated",
+  "unmapped_drive": "constant background luminance",
+  "counts": {
+    "L": {
+      "direct": 1233,
+      "inferred_l1": 1084,
+      "unmapped": 28
+    },
+    "R": {
+      "direct": 1395,
+      "inferred_l1": 2153,
+      "unmapped": 113
+    }
+  }
+}

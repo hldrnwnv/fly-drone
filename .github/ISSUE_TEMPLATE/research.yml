@@ -1,0 +1,55 @@
+name: Исследовательская проверка
+description: Проверяемый вопрос о коннектоме, восприятии или управлении
+labels: [research]
+body:
+  - type: textarea
+    id: observation
+    attributes:
+      label: Исходное наблюдение и источники
+      description: Ссылки на конкретный результат, артефакт и первичные внешние источники для фактических утверждений.
+      placeholder: Что наблюдали, где это сохранено и какие источники это подтверждают?
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Вопрос и опровержимая гипотеза
+      placeholder: Какой результат подтвердит гипотезу, а какой её опровергнет?
+    validations:
+      required: true
+  - type: textarea
+    id: baseline
+    attributes:
+      label: Базовый вариант и контроли
+      placeholder: Какие варианты сравниваем при одинаковых входах и бюджете?
+    validations:
+      required: true
+  - type: textarea
+    id: held_out
+    attributes:
+      label: Условия проверки
+      description: Отделите настройку от новых стартов, кадров, сидов или трасс.
+      placeholder: Наборы данных, число повторов, помехи и критерии исключения.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Метрики и артефакты
+      placeholder: Полные решения и трассы, команды запуска, версии и хеши данных, метрики, отчёт с источниками и инфографика из сохранённых данных.
+    validations:
+      required: true
+  - type: textarea
+    id: completion
+    attributes:
+      label: Критерий завершения
+      description: Отрицательный или неопределённый результат тоже может завершить проверку.
+      placeholder: Что должно быть сохранено и объяснено, чтобы закрыть issue?
+    validations:
+      required: true
+  - type: textarea
+    id: related
+    attributes:
+      label: Связанные issues
+      description: Укажите зависимости и объясните, почему этот вопрос не дублирует открытый или закрытый issue.
+      placeholder: "#1, #2; новый вопрос отличается тем, что..."

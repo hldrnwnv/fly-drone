@@ -5,6 +5,8 @@ data/
 # Keep reports, metrics, videos, images, and small fitted readouts in Git.
 # Regenerate large camera-frame and perception-map arrays locally.
 runs/**/*_frames.npz
+!runs/retina-2d/stimulus_frames.npz
+!runs/retina-2d/grating/stimulus_frames.npz
 runs/**/*_maps.npz
 runs/**/*.log
 runs/**/*.lock

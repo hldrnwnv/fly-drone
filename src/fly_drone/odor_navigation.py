@@ -6,6 +6,7 @@ not an innate descending motor command from the connectome.
 
 from __future__ import annotations
 
+from collections import deque
 from math import atan2
 
 import numpy as np
@@ -45,6 +46,7 @@ class MaleCNSOdorReadout:
         self.masks.update({f"PN_{side}": self._mask(self.pn[side]) for side in "LR"})
         self.masks["DNa02"] = self._mask(self.dna02)
         self.gain: float | None = None
+        self.side_coefficients: tuple[float, float] | None = None
         self.last_counts: dict[str, int] = {}
 
     def _mask(self, cells: np.ndarray) -> np.ndarray:
@@ -92,10 +94,36 @@ class MaleCNSOdorReadout:
 
         train_x, train_y, training = collect(train_seeds)
         self.gain = float(np.dot(train_x, train_y) / (np.dot(train_x, train_x) + 1e-9))
+        side_rates = np.asarray([
+            [record["spikes"][f"ORN_{side}"] /
+             (len(self.orn[side]) * self.ticks_per_decision) for side in "LR"]
+            for record in training]).reshape(-1)
+        side_targets = np.asarray([[record[side] for side in "LR"]
+                                   for record in training]).reshape(-1)
+        zero_rates = np.asarray([
+            record["spikes"][f"ORN_{side}"] /
+            (len(self.orn[side]) * self.ticks_per_decision)
+            for record in training if record["L"] == record["R"] == 0
+            for side in "LR"])
+        baseline_rate = float(np.mean(zero_rates))
+        centered_rates = side_rates - baseline_rate
+        gain = float(np.dot(centered_rates, side_targets) /
+                     (np.dot(centered_rates, centered_rates) + 1e-9))
+        offset = -gain * baseline_rate
+        self.side_coefficients = (float(gain), float(offset))
         val_x, val_y, validation = collect(validation_seeds)
         prediction = np.clip(self.gain * val_x, -1, 1)
+        validation_side = []
+        for record in validation:
+            estimated = [float(np.clip(
+                gain * record["spikes"][f"ORN_{side}"] /
+                (len(self.orn[side]) * self.ticks_per_decision) + offset, 0, 1))
+                for side in "LR"]
+            validation_side.append(estimated)
         active = np.abs(val_y) > 0.05
         return {"gain": self.gain,
+                "side_coefficients": list(self.side_coefficients),
+                "side_baseline_rate": baseline_rate,
                 "features": "normalized ORN_DM1/VA2 left minus right spike count",
                 "target": "injected left minus right concentration",
                 "train_seeds": list(train_seeds),
@@ -105,6 +133,11 @@ class MaleCNSOdorReadout:
                     {**record, "prediction": float(estimate)}
                     for record, estimate in zip(validation, prediction)],
                 "validation_mae": float(np.mean(np.abs(prediction - val_y))),
+                "validation_side_mae": float(np.mean(np.abs(
+                    np.asarray(validation_side) -
+                    np.asarray([[record[side] for side in "LR"]
+                                for record in validation])))),
+                "validation_side_predictions": validation_side,
                 "validation_sign_accuracy": float(np.mean(
                     np.sign(prediction[active]) == np.sign(val_y[active])))}
 
@@ -112,6 +145,16 @@ class MaleCNSOdorReadout:
         if self.gain is None:
             raise RuntimeError("Call fit() before decode()")
         return float(np.clip(self.gain * self.observe(left, right), -1, 1))
+
+    def decode_pair(self, left: float, right: float) -> tuple[float, float]:
+        if self.side_coefficients is None:
+            raise RuntimeError("Call fit() before decode_pair()")
+        self.observe(left, right)
+        gain, offset = self.side_coefficients
+        return tuple(float(np.clip(
+            gain * self.last_counts[f"ORN_{side}"] /
+            (len(self.orn[side]) * self.ticks_per_decision) + offset, 0, 1))
+            for side in "LR")
 
 
 class OdorWindController:
@@ -146,6 +189,91 @@ class OdorWindController:
                    "wind_component": 0.6 * sample["upwind_bearing"],
                    "odor_component": 2.0 * difference}
         if self.readout is not None and self.mode.startswith("neural"):
+            details["spikes"] = self.readout.last_counts.copy()
+        return command, details
+
+
+class OdorHistoryController:
+    """Surge upwind on increasing odor; cast across wind after a decline.
+
+    This is an external engineering policy. Bilateral temporal changes choose
+    a casting side, rather than directly commanding yaw from current L-R.
+    """
+
+    def __init__(self, *, mode: str, readout: MaleCNSOdorReadout | None = None,
+                 cast_angle: float = 0.65, detection_threshold: float = 0.035,
+                 seed: int = 0):
+        if mode not in ("wind_only", "raw_odor", "neural_odor", "neural_swapped"):
+            raise ValueError("unknown odor history mode")
+        if mode.startswith("neural") and readout is None:
+            raise ValueError("neural mode requires an olfactory readout")
+        if not 0 < cast_angle < 1.5 or not 0 <= detection_threshold < 1:
+            raise ValueError("invalid history policy parameters")
+        self.mode = mode
+        self.readout = readout
+        self.cast_angle = cast_angle
+        self.detection_threshold = detection_threshold
+        self.history: deque[tuple[float, float]] = deque(maxlen=4)
+        self.cast_side = 1 if seed % 2 == 0 else -1
+        self.lost_decisions = 0
+
+    def __call__(self, _tag_bearing: float,
+                 sample: dict[str, float]) -> tuple[float, dict]:
+        left, right = sample["L"], sample["R"]
+        if self.mode == "wind_only":
+            sensed_left = sensed_right = 0.0
+        elif self.mode == "raw_odor":
+            sensed_left, sensed_right = left, right
+        else:
+            if self.mode == "neural_swapped":
+                left, right = right, left
+            sensed_left, sensed_right = self.readout.decode_pair(left, right)
+        self.history.append((sensed_left, sensed_right))
+        recent = list(self.history)
+        current_total = sensed_left + sensed_right
+        if len(recent) >= 4:
+            previous_pair = np.mean(recent[-4:-2], axis=0)
+            current_pair = np.mean(recent[-2:], axis=0)
+            left_change, right_change = current_pair - previous_pair
+            previous_total = float(np.sum(previous_pair))
+            filtered_total = float(np.sum(current_pair))
+        elif len(recent) > 1:
+            previous_left, previous_right = recent[-2]
+            previous_total = previous_left + previous_right
+            left_change = sensed_left - previous_left
+            right_change = sensed_right - previous_right
+            filtered_total = current_total
+        else:
+            previous_total = current_total
+            left_change = right_change = 0.0
+            filtered_total = current_total
+        temporal_change = filtered_total - previous_total
+        detected = current_total >= self.detection_threshold
+        if detected and temporal_change > 0.012:
+            self.lost_decisions = 0
+            offset = 0.0
+            phase = "surge"
+        else:
+            self.lost_decisions += 1
+            lateral_change = left_change - right_change
+            if detected and abs(lateral_change) > 0.008:
+                self.cast_side = int(np.sign(lateral_change))
+            elif self.lost_decisions % 5 == 0:
+                self.cast_side *= -1
+            offset = self.cast_side * self.cast_angle
+            phase = "cast" if detected else "search"
+        desired_bearing = wrap_angle(sample["upwind_bearing"] + offset)
+        command = float(np.clip(0.6 * desired_bearing, -1.0, 1.0))
+        details = {"mode": self.mode, "phase": phase,
+                   "sensed_L": sensed_left, "sensed_R": sensed_right,
+                   "filtered_total": filtered_total,
+                   "temporal_change": temporal_change,
+                   "lateral_temporal_change": left_change - right_change,
+                   "cast_side": self.cast_side, "lost_decisions": self.lost_decisions,
+                   "history_LR": [list(pair) for pair in self.history],
+                   "upwind_bearing": sample["upwind_bearing"],
+                   "desired_bearing": desired_bearing, "cast_angle": self.cast_angle}
+        if self.mode.startswith("neural"):
             details["spikes"] = self.readout.last_counts.copy()
         return command, details
 

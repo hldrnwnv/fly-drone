@@ -1040,6 +1040,10 @@ def main() -> None:
     odor_fusion.add_argument("--output", type=Path,
                               default=Path("runs/chase-odor-fusion"))
     odor_fusion.add_argument("--no-video", action="store_true")
+    odor_history = sub.add_parser("chase-odor-history",
+                                  help="evaluate temporal plume navigation on held-out cases")
+    odor_history.add_argument("--output", type=Path,
+                              default=Path("runs/chase-odor-history"))
     neural_pursuit = sub.add_parser("chase-brain", help="let connectome readouts command yaw and speed")
     neural_pursuit.add_argument("--output", type=Path, default=Path("runs/chase-brain"))
     neural_pursuit.add_argument("--duration", type=float, default=18.0)
@@ -1121,6 +1125,9 @@ def main() -> None:
         chase_odor_navigation(args)
     elif args.command == "chase-odor-fusion":
         chase_odor_fusion(args)
+    elif args.command == "chase-odor-history":
+        from .odor_experiment import run_experiment
+        run_experiment(args.output)
     elif args.command == "chase-brain":
         if min(args.train_samples, args.validation_samples, args.eval_seeds) < 1 or args.duration <= 0:
             parser.error("sample counts, eval-seeds and duration must be positive")

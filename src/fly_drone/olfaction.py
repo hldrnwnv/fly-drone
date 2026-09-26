@@ -11,7 +11,7 @@ class FoodOdorPlume:
     """Sample two virtual antennae; the controller never receives source pose."""
 
     def __init__(self, *, wind_xy: tuple[float, float] = (-1.0, 0.0),
-                 antenna_half_span_m: float = 0.12):
+                 antenna_half_span_m: float = 0.12, phase_s: float = 0.0):
         wind = np.asarray(wind_xy, dtype=float)
         norm = float(np.linalg.norm(wind))
         if not np.isfinite(wind).all() or norm <= 0:
@@ -21,6 +21,7 @@ class FoodOdorPlume:
         self.wind = wind / norm
         self.crosswind = np.array([-self.wind[1], self.wind[0]])
         self.antenna_half_span_m = antenna_half_span_m
+        self.phase_s = phase_s
 
     def concentration(self, point_xy: np.ndarray, source_xy: np.ndarray,
                       time_s: float) -> float:
@@ -30,10 +31,11 @@ class FoodOdorPlume:
             return 0.0
         cross = float(offset @ self.crosswind)
         width = 0.22 + 0.13 * downwind
-        center = 0.10 * sin(0.6 * time_s + 0.8 * downwind)
+        plume_time = time_s + self.phase_s
+        center = 0.10 * sin(0.6 * plume_time + 0.8 * downwind)
         envelope = exp(-downwind / 4.0 - 0.5 * ((cross - center) / width) ** 2)
         intermittency = 0.70 + 0.30 * (0.5 + 0.5 * sin(
-            4.0 * time_s - 1.3 * downwind + 3.0 * cross))
+            4.0 * plume_time - 1.3 * downwind + 3.0 * cross))
         return float(np.clip(envelope * intermittency, 0.0, 1.0))
 
     def sample(self, position_xy: np.ndarray, yaw: float,

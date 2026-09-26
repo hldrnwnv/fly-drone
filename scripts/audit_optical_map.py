@@ -11,6 +11,7 @@ import argparse
 import csv
 import hashlib
 import json
+import re
 import warnings
 from math import atan, degrees, radians, tan
 from pathlib import Path
@@ -21,6 +22,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 matplotlib.rcParams["svg.fonttype"] = "none"
+matplotlib.rcParams["svg.hashsalt"] = "optical-map-13-audit"
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -30,6 +32,7 @@ SOURCE_COMMIT = "99d2a43123db636cedb55af9ff31a59657e7d17e"
 SOURCE_BASE = f"https://raw.githubusercontent.com/reiserlab/eyemap_T4/{SOURCE_COMMIT}/"
 SOURCE_FILES = {
     "data/microCT/20240701.RData": "8408447f8c5798fbc6d751de79ef4983d08c342a500c9a55b2a3b4b38d92deec",
+    "data/microCT/20240701_nb.RData": "3d4e34ff61ae7066fce7e18a0e229d7dfbab75ab8b6ab8c64a4017470428c049",
     "data/eyemap.RData": "c3f63c69afdc3f381cdafabb1d376b8e25ec5a71bce67550ae42fcdd79cf618e",
     "proc_eyemap.R": "35c0d8d48a67ea6bd11237464f01a6e87f13146e07baef7ad863ec1e8795df6d",
     "proc_uCT.R": "ba96990c55887a5e046323f5ea6e58e676f92de5909c0ef08ba10a4bc9acf65f",
@@ -62,6 +65,17 @@ def checked_hash(path: Path, expected: str) -> str:
     if actual != expected:
         raise ValueError(f"checksum mismatch: {path}: {actual}")
     return actual
+
+
+def canonicalize_svg(path: Path) -> None:
+    """Keep Matplotlib's generated SVG IDs and timestamp stable for Git diffs."""
+    body = path.read_text(encoding="utf-8")
+    body = re.sub(r"<dc:date>.*?</dc:date>", "<dc:date>2026-09-26</dc:date>", body)
+    generated = list(dict.fromkeys(re.findall(r'\bid="([ph][0-9a-f]{8,})"', body)))
+    for index, old in enumerate(generated):
+        body = body.replace(old, f"optical_generated_{index:04d}")
+    path.write_text("\n".join(line.rstrip() for line in body.splitlines()) + "\n",
+                    encoding="utf-8")
 
 
 def published_eye_stats(cache: Path) -> dict:
@@ -243,8 +257,7 @@ def plot(result: dict, svg: Path, png: Path) -> None:
                fontsize=10, va="top", style="italic")
     svg.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(svg, bbox_inches="tight")
-    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n",
-                   encoding="utf-8")
+    canonicalize_svg(svg)
     fig.savefig(png, dpi=170, bbox_inches="tight")
     plt.close(fig)
 

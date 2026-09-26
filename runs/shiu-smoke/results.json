@@ -1,0 +1,14 @@
+{
+  "source": "philshiu/Drosophila_brain_model original model.py and v630 FlyWire data",
+  "commit": "91bdd1e7dcf193f3e7ca5a8933497fcef63b7960",
+  "neurons": 127400,
+  "synapses": 14687178,
+  "stimulus_index": 0,
+  "stimulus": "original PoissonInput, 150 Hz, 250 x 0.275 mV",
+  "duration_ms": 100.0,
+  "total_spikes": 14,
+  "stimulated_neuron_spikes": 14,
+  "setup_s": 0.7349959159910213,
+  "total_wall_s": 1.8186083330074325,
+  "drone_connected": false
+}

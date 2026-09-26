@@ -1,0 +1,452 @@
+{
+  "protocol": "20 MaleCNS ticks, 20 ms each, bilateral ORN_DM1/VA2; same noise seeds for every dose, sensory_input=False",
+  "cell_counts": {
+    "ORN_DM1": 74,
+    "ORN_VA2": 83,
+    "DM1_lPN": 2,
+    "VA2_adPN": 2,
+    "DNa02": 2
+  },
+  "trials": [
+    {
+      "seed": 107,
+      "dose_per_tick": 0.0,
+      "spike_counts": {
+        "ORN_DM1": 2,
+        "ORN_VA2": 3,
+        "DM1_lPN": 1,
+        "VA2_adPN": 1,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 107,
+      "dose_per_tick": 0.03,
+      "spike_counts": {
+        "ORN_DM1": 17,
+        "ORN_VA2": 17,
+        "DM1_lPN": 1,
+        "VA2_adPN": 1,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 107,
+      "dose_per_tick": 0.05,
+      "spike_counts": {
+        "ORN_DM1": 77,
+        "ORN_VA2": 84,
+        "DM1_lPN": 4,
+        "VA2_adPN": 2,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 107,
+      "dose_per_tick": 0.08,
+      "spike_counts": {
+        "ORN_DM1": 148,
+        "ORN_VA2": 167,
+        "DM1_lPN": 6,
+        "VA2_adPN": 7,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 107,
+      "dose_per_tick": 0.1,
+      "spike_counts": {
+        "ORN_DM1": 157,
+        "ORN_VA2": 169,
+        "DM1_lPN": 7,
+        "VA2_adPN": 6,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 108,
+      "dose_per_tick": 0.0,
+      "spike_counts": {
+        "ORN_DM1": 4,
+        "ORN_VA2": 3,
+        "DM1_lPN": 1,
+        "VA2_adPN": 0,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 108,
+      "dose_per_tick": 0.03,
+      "spike_counts": {
+        "ORN_DM1": 16,
+        "ORN_VA2": 28,
+        "DM1_lPN": 1,
+        "VA2_adPN": 1,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 108,
+      "dose_per_tick": 0.05,
+      "spike_counts": {
+        "ORN_DM1": 77,
+        "ORN_VA2": 86,
+        "DM1_lPN": 4,
+        "VA2_adPN": 2,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 108,
+      "dose_per_tick": 0.08,
+      "spike_counts": {
+        "ORN_DM1": 148,
+        "ORN_VA2": 167,
+        "DM1_lPN": 6,
+        "VA2_adPN": 5,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 108,
+      "dose_per_tick": 0.1,
+      "spike_counts": {
+        "ORN_DM1": 153,
+        "ORN_VA2": 171,
+        "DM1_lPN": 4,
+        "VA2_adPN": 4,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 109,
+      "dose_per_tick": 0.0,
+      "spike_counts": {
+        "ORN_DM1": 4,
+        "ORN_VA2": 5,
+        "DM1_lPN": 0,
+        "VA2_adPN": 0,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 109,
+      "dose_per_tick": 0.03,
+      "spike_counts": {
+        "ORN_DM1": 19,
+        "ORN_VA2": 28,
+        "DM1_lPN": 1,
+        "VA2_adPN": 1,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 109,
+      "dose_per_tick": 0.05,
+      "spike_counts": {
+        "ORN_DM1": 76,
+        "ORN_VA2": 86,
+        "DM1_lPN": 4,
+        "VA2_adPN": 4,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 109,
+      "dose_per_tick": 0.08,
+      "spike_counts": {
+        "ORN_DM1": 148,
+        "ORN_VA2": 167,
+        "DM1_lPN": 6,
+        "VA2_adPN": 6,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 109,
+      "dose_per_tick": 0.1,
+      "spike_counts": {
+        "ORN_DM1": 152,
+        "ORN_VA2": 170,
+        "DM1_lPN": 5,
+        "VA2_adPN": 5,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 110,
+      "dose_per_tick": 0.0,
+      "spike_counts": {
+        "ORN_DM1": 3,
+        "ORN_VA2": 2,
+        "DM1_lPN": 0,
+        "VA2_adPN": 0,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 110,
+      "dose_per_tick": 0.03,
+      "spike_counts": {
+        "ORN_DM1": 18,
+        "ORN_VA2": 18,
+        "DM1_lPN": 0,
+        "VA2_adPN": 0,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 110,
+      "dose_per_tick": 0.05,
+      "spike_counts": {
+        "ORN_DM1": 76,
+        "ORN_VA2": 84,
+        "DM1_lPN": 4,
+        "VA2_adPN": 4,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 110,
+      "dose_per_tick": 0.08,
+      "spike_counts": {
+        "ORN_DM1": 148,
+        "ORN_VA2": 166,
+        "DM1_lPN": 6,
+        "VA2_adPN": 6,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 110,
+      "dose_per_tick": 0.1,
+      "spike_counts": {
+        "ORN_DM1": 155,
+        "ORN_VA2": 170,
+        "DM1_lPN": 5,
+        "VA2_adPN": 5,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 111,
+      "dose_per_tick": 0.0,
+      "spike_counts": {
+        "ORN_DM1": 3,
+        "ORN_VA2": 3,
+        "DM1_lPN": 0,
+        "VA2_adPN": 0,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 111,
+      "dose_per_tick": 0.03,
+      "spike_counts": {
+        "ORN_DM1": 21,
+        "ORN_VA2": 26,
+        "DM1_lPN": 0,
+        "VA2_adPN": 2,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 111,
+      "dose_per_tick": 0.05,
+      "spike_counts": {
+        "ORN_DM1": 77,
+        "ORN_VA2": 85,
+        "DM1_lPN": 2,
+        "VA2_adPN": 4,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 111,
+      "dose_per_tick": 0.08,
+      "spike_counts": {
+        "ORN_DM1": 148,
+        "ORN_VA2": 166,
+        "DM1_lPN": 5,
+        "VA2_adPN": 6,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 111,
+      "dose_per_tick": 0.1,
+      "spike_counts": {
+        "ORN_DM1": 153,
+        "ORN_VA2": 171,
+        "DM1_lPN": 5,
+        "VA2_adPN": 5,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 112,
+      "dose_per_tick": 0.0,
+      "spike_counts": {
+        "ORN_DM1": 3,
+        "ORN_VA2": 2,
+        "DM1_lPN": 1,
+        "VA2_adPN": 1,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 112,
+      "dose_per_tick": 0.03,
+      "spike_counts": {
+        "ORN_DM1": 25,
+        "ORN_VA2": 24,
+        "DM1_lPN": 1,
+        "VA2_adPN": 2,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 112,
+      "dose_per_tick": 0.05,
+      "spike_counts": {
+        "ORN_DM1": 76,
+        "ORN_VA2": 86,
+        "DM1_lPN": 4,
+        "VA2_adPN": 4,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 112,
+      "dose_per_tick": 0.08,
+      "spike_counts": {
+        "ORN_DM1": 148,
+        "ORN_VA2": 166,
+        "DM1_lPN": 5,
+        "VA2_adPN": 6,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 112,
+      "dose_per_tick": 0.1,
+      "spike_counts": {
+        "ORN_DM1": 152,
+        "ORN_VA2": 169,
+        "DM1_lPN": 4,
+        "VA2_adPN": 4,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 113,
+      "dose_per_tick": 0.0,
+      "spike_counts": {
+        "ORN_DM1": 5,
+        "ORN_VA2": 5,
+        "DM1_lPN": 2,
+        "VA2_adPN": 2,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 113,
+      "dose_per_tick": 0.03,
+      "spike_counts": {
+        "ORN_DM1": 20,
+        "ORN_VA2": 17,
+        "DM1_lPN": 2,
+        "VA2_adPN": 2,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 113,
+      "dose_per_tick": 0.05,
+      "spike_counts": {
+        "ORN_DM1": 76,
+        "ORN_VA2": 86,
+        "DM1_lPN": 2,
+        "VA2_adPN": 4,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 113,
+      "dose_per_tick": 0.08,
+      "spike_counts": {
+        "ORN_DM1": 148,
+        "ORN_VA2": 167,
+        "DM1_lPN": 6,
+        "VA2_adPN": 6,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 113,
+      "dose_per_tick": 0.1,
+      "spike_counts": {
+        "ORN_DM1": 152,
+        "ORN_VA2": 174,
+        "DM1_lPN": 4,
+        "VA2_adPN": 4,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 114,
+      "dose_per_tick": 0.0,
+      "spike_counts": {
+        "ORN_DM1": 7,
+        "ORN_VA2": 6,
+        "DM1_lPN": 1,
+        "VA2_adPN": 0,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 114,
+      "dose_per_tick": 0.03,
+      "spike_counts": {
+        "ORN_DM1": 27,
+        "ORN_VA2": 23,
+        "DM1_lPN": 2,
+        "VA2_adPN": 1,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 114,
+      "dose_per_tick": 0.05,
+      "spike_counts": {
+        "ORN_DM1": 77,
+        "ORN_VA2": 86,
+        "DM1_lPN": 4,
+        "VA2_adPN": 4,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 114,
+      "dose_per_tick": 0.08,
+      "spike_counts": {
+        "ORN_DM1": 148,
+        "ORN_VA2": 166,
+        "DM1_lPN": 5,
+        "VA2_adPN": 6,
+        "DNa02": 0
+      }
+    },
+    {
+      "seed": 114,
+      "dose_per_tick": 0.1,
+      "spike_counts": {
+        "ORN_DM1": 158,
+        "ORN_VA2": 174,
+        "DM1_lPN": 6,
+        "VA2_adPN": 4,
+        "DNa02": 0
+      }
+    }
+  ]
+}

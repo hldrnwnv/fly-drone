@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fly-drone"
+version = "0.1.0"
+description = "MaleCNS connectome readout controlling a virtual drone"
+requires-python = ">=3.10"
+dependencies = ["flybrain==0.1.0"]
+
+[project.optional-dependencies]
+fpv = ["mujoco==3.14.0"]
+research = ["brian2>=2.8,<3", "pandas>=2.2,<3", "pyarrow>=19,<25", "joblib>=1.4,<2"]
+perception = ["torch==2.9.1", "torchvision==0.24.1", "transformers==4.57.6", "pillow>=12,<13"]
+
+[project.scripts]
+fly-drone = "fly_drone.cli:main"
+fly-fpv = "fly_drone.fpv_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,407 @@
+{
+  "method": "elitist real-valued genetic algorithm",
+  "objective": "recover level attitude and hover after imposed roll rates",
+  "brain": "MaleCNS v1.0 via flybrain 0.1.0; all graph weights frozen",
+  "neural_timestep_s": 0.02,
+  "decision_interval_s": 0.1,
+  "steering_types": [
+    "b1 MN",
+    "b2 MN",
+    "b3 MN",
+    "i1 MN",
+    "i2 MN",
+    "iii1 MN",
+    "iii3 MN",
+    "hg1 MN",
+    "hg2 MN",
+    "hg3 MN",
+    "hg4 MN"
+  ],
+  "train_scenarios": [
+    [
+      100,
+      0.6
+    ],
+    [
+      101,
+      -0.6
+    ]
+  ],
+  "heldout_scenarios": [
+    [
+      200,
+      0.4
+    ],
+    [
+      201,
+      -0.4
+    ],
+    [
+      202,
+      0.9
+    ],
+    [
+      203,
+      -0.9
+    ]
+  ],
+  "duration_limit_s": 2.0,
+  "generations": 1,
+  "population": 4,
+  "fitness": "alive seconds minus 0.35 integral abs(roll) minus 0.25 integral abs(height-1.2)",
+  "history": [
+    {
+      "generation": 0,
+      "candidates": [
+        {
+          "parameters": {
+            "power_gain": 1.0,
+            "memory": 0.8,
+            "side_gain": 0.35,
+            "fore_gain": 0.25,
+            "haltere_gain": 1.0
+          },
+          "mean_score": 0.7812169576015753,
+          "survived": 0,
+          "episodes": [
+            {
+              "seed": 100,
+              "initial_roll_rate_rad_s": 0.6,
+              "status": "crashed",
+              "duration_s": 1.0050000000000006,
+              "score": 0.8195198229508889,
+              "last_altitude_m": 0.4996373790230573,
+              "last_roll_rad": -1.3198053165257078,
+              "steering_spikes": 16,
+              "motor_decisions": 11
+            },
+            {
+              "seed": 101,
+              "initial_roll_rate_rad_s": -0.6,
+              "status": "crashed",
+              "duration_s": 0.8700000000000007,
+              "score": 0.7429140922522617,
+              "last_altitude_m": 0.7091767980952657,
+              "last_roll_rad": 1.3119776967757797,
+              "steering_spikes": 10,
+              "motor_decisions": 9
+            }
+          ]
+        },
+        {
+          "parameters": {
+            "power_gain": 1.0,
+            "memory": 0.98,
+            "side_gain": 0.0,
+            "fore_gain": 0.0,
+            "haltere_gain": 0.0
+          },
+          "mean_score": 0.5852709610017555,
+          "survived": 0,
+          "episodes": [
+            {
+              "seed": 100,
+              "initial_roll_rate_rad_s": 0.6,
+              "status": "crashed",
+              "duration_s": 0.6050000000000004,
+              "score": 0.4916980644645184,
+              "last_altitude_m": 1.002182657065398,
+              "last_roll_rad": 1.3151003224677715,
+              "steering_spikes": 3,
+              "motor_decisions": 7
+            },
+            {
+              "seed": 101,
+              "initial_roll_rate_rad_s": -0.6,
+              "status": "crashed",
+              "duration_s": 0.7900000000000006,
+              "score": 0.6788438575389926,
+              "last_altitude_m": 0.9572865592299676,
+              "last_roll_rad": 1.300389919344731,
+              "steering_spikes": 6,
+              "motor_decisions": 8
+            }
+          ]
+        },
+        {
+          "parameters": {
+            "power_gain": 0.8252543695728053,
+            "memory": 0.7711496361147896,
+            "side_gain": -0.13092639542605955,
+            "fore_gain": -0.2589989457839039,
+            "haltere_gain": -0.8704959941420927
+          },
+          "mean_score": 0.7236201044174193,
+          "survived": 0,
+          "episodes": [
+            {
+              "seed": 100,
+              "initial_roll_rate_rad_s": 0.6,
+              "status": "crashed",
+              "duration_s": 0.8650000000000007,
+              "score": 0.697913546930573,
+              "last_altitude_m": 0.11641933306617319,
+              "last_roll_rad": 0.12496380868811677,
+              "steering_spikes": 13,
+              "motor_decisions": 9
+            },
+            {
+              "seed": 101,
+              "initial_roll_rate_rad_s": -0.6,
+              "status": "crashed",
+              "duration_s": 0.8750000000000007,
+              "score": 0.7493266619042657,
+              "last_altitude_m": 0.11958856676474378,
+              "last_roll_rad": 0.25153608439907227,
+              "steering_spikes": 7,
+              "motor_decisions": 9
+            }
+          ]
+        },
+        {
+          "parameters": {
+            "power_gain": 1.2533627720972855,
+            "memory": 0.9249834252727609,
+            "side_gain": -1.2905872327078054,
+            "fore_gain": 0.3055696053702639,
+            "haltere_gain": -1.2101833958665844
+          },
+          "mean_score": 0.912018484358731,
+          "survived": 0,
+          "episodes": [
+            {
+              "seed": 100,
+              "initial_roll_rate_rad_s": 0.6,
+              "status": "crashed",
+              "duration_s": 0.6950000000000005,
+              "score": 0.5383870578162002,
+              "last_altitude_m": 1.0998768656716582,
+              "last_roll_rad": 1.306300714528378,
+              "steering_spikes": 7,
+              "motor_decisions": 7
+            },
+            {
+              "seed": 101,
+              "initial_roll_rate_rad_s": -0.6,
+              "status": "crashed",
+              "duration_s": 1.4899999999999902,
+              "score": 1.2856499109012618,
+              "last_altitude_m": 1.5203157836664047,
+              "last_roll_rad": 1.302001818130866,
+              "steering_spikes": 20,
+              "motor_decisions": 15
+            }
+          ]
+        }
+      ],
+      "best_score": 0.912018484358731
+    }
+  ],
+  "best_train": {
+    "parameters": {
+      "power_gain": 1.2533627720972855,
+      "memory": 0.9249834252727609,
+      "side_gain": -1.2905872327078054,
+      "fore_gain": 0.3055696053702639,
+      "haltere_gain": -1.2101833958665844
+    },
+    "mean_score": 0.912018484358731,
+    "survived": 0,
+    "episodes": [
+      {
+        "seed": 100,
+        "initial_roll_rate_rad_s": 0.6,
+        "status": "crashed",
+        "duration_s": 0.6950000000000005,
+        "score": 0.5383870578162002,
+        "last_altitude_m": 1.0998768656716582,
+        "last_roll_rad": 1.306300714528378,
+        "steering_spikes": 7,
+        "motor_decisions": 7
+      },
+      {
+        "seed": 101,
+        "initial_roll_rate_rad_s": -0.6,
+        "status": "crashed",
+        "duration_s": 1.4899999999999902,
+        "score": 1.2856499109012618,
+        "last_altitude_m": 1.5203157836664047,
+        "last_roll_rad": 1.302001818130866,
+        "steering_spikes": 20,
+        "motor_decisions": 15
+      }
+    ]
+  },
+  "best_heldout": {
+    "parameters": {
+      "power_gain": 1.2533627720972855,
+      "memory": 0.9249834252727609,
+      "side_gain": -1.2905872327078054,
+      "fore_gain": 0.3055696053702639,
+      "haltere_gain": -1.2101833958665844
+    },
+    "mean_score": 0.47570222056051426,
+    "survived": 0,
+    "episodes": [
+      {
+        "seed": 200,
+        "initial_roll_rate_rad_s": 0.4,
+        "status": "crashed",
+        "duration_s": 0.4850000000000003,
+        "score": 0.40944501074847245,
+        "last_altitude_m": 1.2284600805720436,
+        "last_roll_rad": 1.3035158640256153,
+        "steering_spikes": 6,
+        "motor_decisions": 5
+      },
+      {
+        "seed": 201,
+        "initial_roll_rate_rad_s": -0.4,
+        "status": "crashed",
+        "duration_s": 0.6950000000000005,
+        "score": 0.5869146599201682,
+        "last_altitude_m": 1.3166581602277654,
+        "last_roll_rad": 1.3074217026304618,
+        "steering_spikes": 7,
+        "motor_decisions": 7
+      },
+      {
+        "seed": 202,
+        "initial_roll_rate_rad_s": 0.9,
+        "status": "crashed",
+        "duration_s": 0.49500000000000033,
+        "score": 0.4041110386101426,
+        "last_altitude_m": 1.1867179353226291,
+        "last_roll_rad": 1.3056402300660765,
+        "steering_spikes": 5,
+        "motor_decisions": 5
+      },
+      {
+        "seed": 203,
+        "initial_roll_rate_rad_s": -0.9,
+        "status": "crashed",
+        "duration_s": 0.5650000000000004,
+        "score": 0.5023381729632739,
+        "last_altitude_m": 1.2616562049065183,
+        "last_roll_rad": 1.3249037791556326,
+        "steering_spikes": 5,
+        "motor_decisions": 6
+      }
+    ]
+  },
+  "default_heldout": {
+    "parameters": {
+      "power_gain": 1.0,
+      "memory": 0.8,
+      "side_gain": 0.35,
+      "fore_gain": 0.25,
+      "haltere_gain": 1.0
+    },
+    "mean_score": 0.5931800526669883,
+    "survived": 0,
+    "episodes": [
+      {
+        "seed": 200,
+        "initial_roll_rate_rad_s": 0.4,
+        "status": "crashed",
+        "duration_s": 0.5550000000000004,
+        "score": 0.45550565624667827,
+        "last_altitude_m": 0.6119628073057958,
+        "last_roll_rad": 1.3103000729237733,
+        "steering_spikes": 1,
+        "motor_decisions": 6
+      },
+      {
+        "seed": 201,
+        "initial_roll_rate_rad_s": -0.4,
+        "status": "crashed",
+        "duration_s": 1.2599999999999951,
+        "score": 0.9155389772465883,
+        "last_altitude_m": 0.11455519079406166,
+        "last_roll_rad": -1.079933359856783,
+        "steering_spikes": 15,
+        "motor_decisions": 13
+      },
+      {
+        "seed": 202,
+        "initial_roll_rate_rad_s": 0.9,
+        "status": "crashed",
+        "duration_s": 0.5550000000000004,
+        "score": 0.43183738419601664,
+        "last_altitude_m": 0.5655105744251165,
+        "last_roll_rad": 1.3053785428608793,
+        "steering_spikes": 7,
+        "motor_decisions": 6
+      },
+      {
+        "seed": 203,
+        "initial_roll_rate_rad_s": -0.9,
+        "status": "crashed",
+        "duration_s": 0.6800000000000005,
+        "score": 0.5698381929786697,
+        "last_altitude_m": 0.38173251137350417,
+        "last_roll_rad": 1.3116857231875942,
+        "steering_spikes": 7,
+        "motor_decisions": 7
+      }
+    ]
+  },
+  "near_constant_heldout": {
+    "parameters": {
+      "power_gain": 1.0,
+      "memory": 0.98,
+      "side_gain": 0.0,
+      "fore_gain": 0.0,
+      "haltere_gain": 0.0
+    },
+    "mean_score": 0.5613601149347404,
+    "survived": 0,
+    "episodes": [
+      {
+        "seed": 200,
+        "initial_roll_rate_rad_s": 0.4,
+        "status": "crashed",
+        "duration_s": 0.5800000000000004,
+        "score": 0.48319564668541015,
+        "last_altitude_m": 1.0363616948810062,
+        "last_roll_rad": 1.3071443362551989,
+        "steering_spikes": 2,
+        "motor_decisions": 6
+      },
+      {
+        "seed": 201,
+        "initial_roll_rate_rad_s": -0.4,
+        "status": "crashed",
+        "duration_s": 0.7350000000000005,
+        "score": 0.629912071170419,
+        "last_altitude_m": 1.0297336773446637,
+        "last_roll_rad": 1.3170356195024322,
+        "steering_spikes": 7,
+        "motor_decisions": 8
+      },
+      {
+        "seed": 202,
+        "initial_roll_rate_rad_s": 0.9,
+        "status": "crashed",
+        "duration_s": 0.5350000000000004,
+        "score": 0.4347439228205993,
+        "last_altitude_m": 1.0348153695402251,
+        "last_roll_rad": 1.3042254352362428,
+        "steering_spikes": 1,
+        "motor_decisions": 6
+      },
+      {
+        "seed": 203,
+        "initial_roll_rate_rad_s": -0.9,
+        "status": "crashed",
+        "duration_s": 0.8000000000000006,
+        "score": 0.6975888190625327,
+        "last_altitude_m": 0.9887869122772722,
+        "last_roll_rad": 1.3188740611093217,
+        "steering_spikes": 7,
+        "motor_decisions": 8
+      }
+    ]
+  },
+  "wall_s": 7.381339707993902
+}

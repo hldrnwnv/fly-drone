@@ -1,0 +1,887 @@
+{
+  "method": "paired reset, fixed-current neuron stimulation",
+  "brain": "MaleCNS v1.0 via flybrain 0.1.0; connectome weights frozen",
+  "brain_dynamics": "hand-calibrated flybrain, not Shiu or Eon",
+  "seed_split": {
+    "discovery": [
+      500,
+      501,
+      502,
+      503,
+      504,
+      505
+    ],
+    "heldout": [
+      506,
+      507,
+      508,
+      509,
+      510,
+      511
+    ]
+  },
+  "warmup_ticks": 20,
+  "stimulus_ticks": 30,
+  "candidates": [
+    "SNpp_bundle"
+  ],
+  "step_s": 0.02,
+  "amount_extra_voltage_per_tick": 0.5,
+  "readout": "(i1+i2)_R - (i1+i2)_L spike count, proxy for current wing adapter roll sign",
+  "limitation": "Open-loop motor spikes only; no body dynamics or validated fly reflex",
+  "structural": {
+    "SNpp_bundle_L": {
+      "cells": 11,
+      "direct_signed_weight_to_motors": {
+        "b1 MN_L": 0.009096764028072357,
+        "b1 MN_R": 0.007860181853175163,
+        "b2 MN_L": 0.01343454048037529,
+        "b2 MN_R": 0.0,
+        "b3 MN_L": 0.0,
+        "b3 MN_R": 0.0,
+        "i1 MN_L": 0.00035819184267893434,
+        "i1 MN_R": 0.0,
+        "i2 MN_L": 0.026368819177150726,
+        "i2 MN_R": 0.0011154855601489544,
+        "iii3 MN_L": 0.00040708325104787946,
+        "iii3 MN_R": 0.0
+      },
+      "SApp08_to_candidate": {
+        "L": {
+          "direct": 0.0,
+          "two_synapse_linearized": 0.0
+        },
+        "R": {
+          "direct": 0.0,
+          "two_synapse_linearized": 0.0
+        }
+      }
+    },
+    "SNpp_bundle_R": {
+      "cells": 10,
+      "direct_signed_weight_to_motors": {
+        "b1 MN_L": 0.004025116562843323,
+        "b1 MN_R": 0.008692435920238495,
+        "b2 MN_L": 0.0,
+        "b2 MN_R": 0.010488416068255901,
+        "b3 MN_L": 0.0,
+        "b3 MN_R": 0.0,
+        "i1 MN_L": 0.0,
+        "i1 MN_R": 0.0005789430579170585,
+        "i2 MN_L": 0.0002878691884689033,
+        "i2 MN_R": 0.019750654697418213,
+        "iii3 MN_L": 0.0,
+        "iii3 MN_R": 0.0
+      },
+      "SApp08_to_candidate": {
+        "L": {
+          "direct": 0.0,
+          "two_synapse_linearized": 0.0
+        },
+        "R": {
+          "direct": 0.0,
+          "two_synapse_linearized": 0.0
+        }
+      }
+    }
+  },
+  "summary": {
+    "SNpp_bundle": {
+      "orientation_from_discovery": 1,
+      "mean_effect_L_discovery": -2.1666666666666665,
+      "mean_effect_R_discovery": 1.5,
+      "mean_effect_L_heldout": -2.5,
+      "mean_effect_R_heldout": 1.8333333333333333,
+      "heldout_opposite_sign_pairs": 5,
+      "heldout_seeds": 6,
+      "effects": {
+        "L": [
+          -4,
+          -3,
+          -3,
+          -4,
+          0,
+          1,
+          -3,
+          -3,
+          -2,
+          -2,
+          -3,
+          -2
+        ],
+        "R": [
+          1,
+          0,
+          2,
+          3,
+          2,
+          1,
+          1,
+          0,
+          2,
+          2,
+          2,
+          4
+        ]
+      }
+    }
+  },
+  "records": [
+    {
+      "seed": 500,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 1,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 0,
+        "i2 MN_L": 0,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": 0
+    },
+    {
+      "seed": 500,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 1,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 2,
+        "i1 MN_R": 0,
+        "i2 MN_L": 3,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -4
+    },
+    {
+      "seed": 500,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 1,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 1,
+        "i2 MN_L": 1,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 1
+    },
+    {
+      "seed": 501,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 0,
+        "i1 MN_R": 1,
+        "i2 MN_L": 1,
+        "i2 MN_R": 0,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": 0
+    },
+    {
+      "seed": 501,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 1,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 1,
+        "i1 MN_L": 2,
+        "i1 MN_R": 1,
+        "i2 MN_L": 2,
+        "i2 MN_R": 0,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -3
+    },
+    {
+      "seed": 501,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 2,
+        "b2 MN_L": 0,
+        "b2 MN_R": 1,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 1,
+        "i2 MN_L": 1,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 0
+    },
+    {
+      "seed": 502,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 0,
+        "i1 MN_R": 0,
+        "i2 MN_L": 0,
+        "i2 MN_R": 0,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": 0
+    },
+    {
+      "seed": 502,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 1,
+        "i2 MN_L": 3,
+        "i2 MN_R": 0,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -3
+    },
+    {
+      "seed": 502,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 1,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 1,
+        "i2 MN_L": 0,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 2
+    },
+    {
+      "seed": 503,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 0,
+        "i1 MN_R": 1,
+        "i2 MN_L": 1,
+        "i2 MN_R": 0,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": 0
+    },
+    {
+      "seed": 503,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 1,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 2,
+        "i1 MN_R": 1,
+        "i2 MN_L": 3,
+        "i2 MN_R": 0,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -4
+    },
+    {
+      "seed": 503,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 1,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 0,
+        "i1 MN_R": 2,
+        "i2 MN_L": 1,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 3
+    },
+    {
+      "seed": 504,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 1,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 1,
+        "i2 MN_L": 1,
+        "i2 MN_R": 0,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": -1
+    },
+    {
+      "seed": 504,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 1,
+        "b2 MN_L": 1,
+        "b2 MN_R": 1,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 2,
+        "i2 MN_L": 3,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -1
+    },
+    {
+      "seed": 504,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 1,
+        "b2 MN_L": 0,
+        "b2 MN_R": 1,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 1,
+        "i2 MN_L": 1,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 1
+    },
+    {
+      "seed": 505,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 0,
+        "i2 MN_L": 1,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": -1
+    },
+    {
+      "seed": 505,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 2,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 2,
+        "i2 MN_L": 3,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": 0
+    },
+    {
+      "seed": 505,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 1,
+        "i1 MN_L": 1,
+        "i1 MN_R": 1,
+        "i2 MN_L": 2,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 0
+    },
+    {
+      "seed": 506,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 1,
+        "i1 MN_L": 0,
+        "i1 MN_R": 1,
+        "i2 MN_L": 0,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": 2
+    },
+    {
+      "seed": 506,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 2,
+        "i1 MN_L": 1,
+        "i1 MN_R": 1,
+        "i2 MN_L": 2,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -1
+    },
+    {
+      "seed": 506,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 1,
+        "i1 MN_L": 0,
+        "i1 MN_R": 1,
+        "i2 MN_L": 0,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 3
+    },
+    {
+      "seed": 507,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 1,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 0,
+        "i1 MN_R": 0,
+        "i2 MN_L": 1,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": 1
+    },
+    {
+      "seed": 507,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 1,
+        "b3 MN_L": 0,
+        "b3 MN_R": 1,
+        "i1 MN_L": 2,
+        "i1 MN_R": 1,
+        "i2 MN_L": 3,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -2
+    },
+    {
+      "seed": 507,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 1,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 1,
+        "i2 MN_L": 1,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 1
+    },
+    {
+      "seed": 508,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 0,
+        "i2 MN_L": 0,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": 0
+    },
+    {
+      "seed": 508,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 2,
+        "i1 MN_R": 1,
+        "i2 MN_L": 3,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -2
+    },
+    {
+      "seed": 508,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 1,
+        "b3 MN_L": 1,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 2,
+        "i2 MN_L": 1,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 2
+    },
+    {
+      "seed": 509,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 0,
+        "i1 MN_R": 1,
+        "i2 MN_L": 1,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": 1
+    },
+    {
+      "seed": 509,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 2,
+        "i2 MN_L": 3,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -1
+    },
+    {
+      "seed": 509,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 0,
+        "i1 MN_R": 2,
+        "i2 MN_L": 1,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 3
+    },
+    {
+      "seed": 510,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 0,
+        "i1 MN_L": 1,
+        "i1 MN_R": 1,
+        "i2 MN_L": 0,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 2
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": 1
+    },
+    {
+      "seed": 510,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 1,
+        "i1 MN_L": 2,
+        "i1 MN_R": 2,
+        "i2 MN_L": 3,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -2
+    },
+    {
+      "seed": 510,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 1,
+        "i1 MN_L": 1,
+        "i1 MN_R": 2,
+        "i2 MN_L": 0,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 0,
+        "iii3 MN_R": 1
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 3
+    },
+    {
+      "seed": 511,
+      "candidate": "rest",
+      "side": null,
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 1,
+        "i1 MN_L": 0,
+        "i1 MN_R": 0,
+        "i2 MN_L": 0,
+        "i2 MN_R": 1,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 0,
+      "roll_proxy": 1
+    },
+    {
+      "seed": 511,
+      "candidate": "SNpp_bundle",
+      "side": "L",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 2,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 1,
+        "i1 MN_L": 0,
+        "i1 MN_R": 0,
+        "i2 MN_L": 3,
+        "i2 MN_R": 2,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 165,
+      "roll_proxy": -1
+    },
+    {
+      "seed": 511,
+      "candidate": "SNpp_bundle",
+      "side": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 1,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "b3 MN_L": 0,
+        "b3 MN_R": 1,
+        "i1 MN_L": 0,
+        "i1 MN_R": 2,
+        "i2 MN_L": 0,
+        "i2 MN_R": 3,
+        "iii3 MN_L": 1,
+        "iii3 MN_R": 0
+      },
+      "stimulated_spikes": 150,
+      "roll_proxy": 5
+    }
+  ]
+}

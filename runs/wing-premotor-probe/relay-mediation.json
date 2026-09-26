@@ -1,0 +1,1467 @@
+{
+  "method": "paired stimulation and within-side hyperpolarization",
+  "brain": "MaleCNS v1.0 via flybrain 0.1.0; weights frozen",
+  "sensory_types": [
+    "SNpp26",
+    "SNpp27",
+    "SNpp37",
+    "SNpp38",
+    "SNpp06"
+  ],
+  "relay_type": "IN08B051_d",
+  "sensory_extra_voltage_per_tick": 0.5,
+  "relay_extra_voltage_per_tick_when_silenced": -2.0,
+  "warmup_ticks": 20,
+  "stimulus_ticks": 30,
+  "seeds": [
+    600,
+    601,
+    602,
+    603,
+    604,
+    605,
+    606,
+    607,
+    608,
+    609,
+    610,
+    611
+  ],
+  "readout": "(i1+i2)_R - (i1+i2)_L spike count",
+  "summary": {
+    "L": {
+      "mean_sensory_effect": -2.25,
+      "mean_effect_with_relay_silenced": -1.4166666666666667,
+      "sensory_effects": [
+        -3,
+        -3,
+        -3,
+        -1,
+        -4,
+        -4,
+        0,
+        -1,
+        -3,
+        0,
+        -3,
+        -2
+      ],
+      "blocked_effects": [
+        -1,
+        -2,
+        -2,
+        -1,
+        -2,
+        -2,
+        -1,
+        -2,
+        0,
+        0,
+        -2,
+        -2
+      ],
+      "mean_relay_spikes_sensory": 13.833333333333334,
+      "mean_relay_spikes_blocked": 0.0
+    },
+    "R": {
+      "mean_sensory_effect": 2.0833333333333335,
+      "mean_effect_with_relay_silenced": 1.25,
+      "sensory_effects": [
+        0,
+        2,
+        1,
+        3,
+        2,
+        3,
+        3,
+        4,
+        1,
+        2,
+        1,
+        3
+      ],
+      "blocked_effects": [
+        0,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        0,
+        3,
+        1,
+        1
+      ],
+      "mean_relay_spikes_sensory": 11.25,
+      "mean_relay_spikes_blocked": 0.0
+    }
+  },
+  "conditions": {
+    "L": {
+      "rest": [
+        {
+          "seed": 600,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 2,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 2,
+            "relay_R": 0
+          },
+          "roll_proxy": 3
+        },
+        {
+          "seed": 601,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 602,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 2,
+            "relay_R": 1
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 603,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 604,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 605,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 1,
+            "relay_R": 2
+          },
+          "roll_proxy": 3
+        },
+        {
+          "seed": 606,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 0,
+            "i2 MN_L": 1,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": -3
+        },
+        {
+          "seed": 607,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 608,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 609,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 610,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 1,
+            "relay_R": 2
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 611,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 1,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        }
+      ],
+      "sensory": [
+        {
+          "seed": 600,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 2,
+            "i2 MN_L": 2,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 14,
+            "relay_R": 0
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 601,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 1,
+            "i2 MN_L": 2,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 14,
+            "relay_R": 0
+          },
+          "roll_proxy": -3
+        },
+        {
+          "seed": 602,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 2,
+            "i2 MN_L": 3,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 14,
+            "relay_R": 1
+          },
+          "roll_proxy": -3
+        },
+        {
+          "seed": 603,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 2,
+            "i2 MN_L": 3,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 14,
+            "relay_R": 0
+          },
+          "roll_proxy": -2
+        },
+        {
+          "seed": 604,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 3,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 13,
+            "relay_R": 2
+          },
+          "roll_proxy": -4
+        },
+        {
+          "seed": 605,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 2,
+            "i2 MN_L": 3,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 15,
+            "relay_R": 2
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 606,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 1,
+            "i2 MN_L": 3,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 14,
+            "relay_R": 4
+          },
+          "roll_proxy": -3
+        },
+        {
+          "seed": 607,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 3,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 14,
+            "relay_R": 2
+          },
+          "roll_proxy": -2
+        },
+        {
+          "seed": 608,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 2,
+            "i2 MN_L": 3,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 13,
+            "relay_R": 2
+          },
+          "roll_proxy": -2
+        },
+        {
+          "seed": 609,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 2,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 13,
+            "relay_R": 1
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 610,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 2,
+            "i2 MN_L": 3,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 14,
+            "relay_R": 2
+          },
+          "roll_proxy": -2
+        },
+        {
+          "seed": 611,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 2,
+            "i2 MN_L": 3,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 14,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        }
+      ],
+      "relay_silenced": [
+        {
+          "seed": 600,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 2,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": 2
+        },
+        {
+          "seed": 601,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 602,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 603,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 604,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 605,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 2
+          },
+          "roll_proxy": 3
+        },
+        {
+          "seed": 606,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 0,
+            "i2 MN_L": 1,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": -3
+        },
+        {
+          "seed": 607,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 608,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 609,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 610,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 2
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 611,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        }
+      ],
+      "sensory_plus_relay_silenced": [
+        {
+          "seed": 600,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 2,
+            "i2 MN_L": 2,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 601,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 2,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -2
+        },
+        {
+          "seed": 602,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 3,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": -2
+        },
+        {
+          "seed": 603,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 2,
+            "i2 MN_L": 3,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -2
+        },
+        {
+          "seed": 604,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 2,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 2
+          },
+          "roll_proxy": -2
+        },
+        {
+          "seed": 605,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 2,
+            "i2 MN_L": 3,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 2
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 606,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 1,
+            "i2 MN_L": 3,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 4
+          },
+          "roll_proxy": -4
+        },
+        {
+          "seed": 607,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 3,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 2
+          },
+          "roll_proxy": -3
+        },
+        {
+          "seed": 608,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 2,
+            "i2 MN_L": 2,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 2
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 609,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 2,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 610,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 3,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 2
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 611,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 2,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        }
+      ]
+    },
+    "R": {
+      "rest": [
+        {
+          "seed": 600,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 2,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 2,
+            "relay_R": 0
+          },
+          "roll_proxy": 3
+        },
+        {
+          "seed": 601,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 602,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 2,
+            "relay_R": 1
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 603,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 604,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 605,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 1,
+            "relay_R": 2
+          },
+          "roll_proxy": 3
+        },
+        {
+          "seed": 606,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 0,
+            "i2 MN_L": 1,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": -3
+        },
+        {
+          "seed": 607,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 608,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 1
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 609,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 610,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 1,
+            "relay_R": 2
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 611,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 1,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        }
+      ],
+      "sensory": [
+        {
+          "seed": 600,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 2,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 5,
+            "relay_R": 11
+          },
+          "roll_proxy": 3
+        },
+        {
+          "seed": 601,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 5,
+            "relay_R": 11
+          },
+          "roll_proxy": 2
+        },
+        {
+          "seed": 602,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 10
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 603,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 2,
+            "i2 MN_L": 1,
+            "i2 MN_R": 3
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 10
+          },
+          "roll_proxy": 2
+        },
+        {
+          "seed": 604,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 11
+          },
+          "roll_proxy": 2
+        },
+        {
+          "seed": 605,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 3,
+            "i2 MN_L": 0,
+            "i2 MN_R": 4
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 12
+          },
+          "roll_proxy": 6
+        },
+        {
+          "seed": 606,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 5,
+            "relay_R": 12
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 607,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 3
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 11
+          },
+          "roll_proxy": 3
+        },
+        {
+          "seed": 608,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 2,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 13
+          },
+          "roll_proxy": 2
+        },
+        {
+          "seed": 609,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 2,
+            "relay_R": 11
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 610,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 2,
+            "i2 MN_L": 1,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 12
+          },
+          "roll_proxy": 2
+        },
+        {
+          "seed": 611,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 3,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 11
+          },
+          "roll_proxy": 4
+        }
+      ],
+      "relay_silenced": [
+        {
+          "seed": 600,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 2,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 2,
+            "relay_R": 0
+          },
+          "roll_proxy": 3
+        },
+        {
+          "seed": 601,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 602,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 2,
+            "relay_R": 0
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 603,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 604,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 605,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 1,
+            "relay_R": 0
+          },
+          "roll_proxy": 2
+        },
+        {
+          "seed": 606,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 0,
+            "i2 MN_L": 1,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -3
+        },
+        {
+          "seed": 607,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 608,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 609,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 0
+          },
+          "relay_spikes": {
+            "relay_L": 0,
+            "relay_R": 0
+          },
+          "roll_proxy": -1
+        },
+        {
+          "seed": 610,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 1,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 611,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 1,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        }
+      ],
+      "sensory_plus_relay_silenced": [
+        {
+          "seed": 600,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 2,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 3,
+            "relay_R": 0
+          },
+          "roll_proxy": 3
+        },
+        {
+          "seed": 601,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 0
+          },
+          "roll_proxy": 2
+        },
+        {
+          "seed": 602,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 603,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 3,
+            "relay_R": 0
+          },
+          "roll_proxy": 0
+        },
+        {
+          "seed": 604,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 605,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 3
+          },
+          "relay_spikes": {
+            "relay_L": 3,
+            "relay_R": 0
+          },
+          "roll_proxy": 4
+        },
+        {
+          "seed": 606,
+          "motor_spikes": {
+            "i1 MN_L": 2,
+            "i1 MN_R": 0,
+            "i2 MN_L": 1,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 0
+          },
+          "roll_proxy": -2
+        },
+        {
+          "seed": 607,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 0,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 3,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 608,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 3,
+            "relay_R": 0
+          },
+          "roll_proxy": 1
+        },
+        {
+          "seed": 609,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 1,
+            "i2 MN_L": 0,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 2,
+            "relay_R": 0
+          },
+          "roll_proxy": 2
+        },
+        {
+          "seed": 610,
+          "motor_spikes": {
+            "i1 MN_L": 0,
+            "i1 MN_R": 1,
+            "i2 MN_L": 1,
+            "i2 MN_R": 2
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 0
+          },
+          "roll_proxy": 2
+        },
+        {
+          "seed": 611,
+          "motor_spikes": {
+            "i1 MN_L": 1,
+            "i1 MN_R": 2,
+            "i2 MN_L": 0,
+            "i2 MN_R": 1
+          },
+          "relay_spikes": {
+            "relay_L": 4,
+            "relay_R": 0
+          },
+          "roll_proxy": 2
+        }
+      ]
+    }
+  }
+}

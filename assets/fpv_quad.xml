@@ -1,0 +1,72 @@
+<mujoco model="FPV quad experimental">
+  <compiler angle="radian"/>
+  <option timestep="0.005" integrator="RK4" gravity="0 0 -9.81"/>
+  <visual>
+    <global offwidth="960" offheight="540"/>
+    <headlight ambient="0.45 0.45 0.45" diffuse="0.6 0.6 0.6"/>
+  </visual>
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.34 0.57 0.78" rgb2="0.03 0.07 0.11" width="512" height="3072"/>
+    <texture name="checker" type="2d" builtin="checker" rgb1="0.13 0.20 0.23" rgb2="0.19 0.29 0.32" width="512" height="512"/>
+    <material name="ground" texture="checker" texrepeat="24 24" texuniform="true"/>
+  </asset>
+  <worldbody>
+    <light pos="0 0 8" dir="0 0 -1" directional="true"/>
+    <geom name="floor" type="plane" size="20 20 0.1" material="ground"/>
+    <!-- Fixed world reference for pursuit videos; never used as a controller sensor. -->
+    <camera name="overview" pos="7 -8 5" xyaxes="1 0 0 0 0.529999 0.847998" fovy="60"/>
+
+    <body name="gate_left" pos="4 3 0" euler="0 0 0.6435011088">
+      <geom name="left_post_l" type="capsule" fromto="0 -0.8 0.05 0 -0.8 2.4" size="0.045" rgba="0.15 0.95 0.65 1"/>
+      <geom name="left_post_r" type="capsule" fromto="0 0.8 0.05 0 0.8 2.4" size="0.045" rgba="0.15 0.95 0.65 1"/>
+      <geom name="left_crossbar" type="capsule" fromto="0 -0.8 2.4 0 0.8 2.4" size="0.045" rgba="0.15 0.95 0.65 1"/>
+    </body>
+    <body name="gate_right" pos="4 -3 0" euler="0 0 -0.6435011088">
+      <geom name="right_post_l" type="capsule" fromto="0 -0.8 0.05 0 -0.8 2.4" size="0.045" rgba="0.95 0.45 0.25 1"/>
+      <geom name="right_post_r" type="capsule" fromto="0 0.8 0.05 0 0.8 2.4" size="0.045" rgba="0.95 0.45 0.25 1"/>
+      <geom name="right_crossbar" type="capsule" fromto="0 -0.8 2.4 0 0.8 2.4" size="0.045" rgba="0.95 0.45 0.25 1"/>
+    </body>
+
+    <!-- A visual-only moving pursuit target, hidden during gate experiments. -->
+    <body name="cow" mocap="true" pos="2.2 0 0">
+      <geom name="cow_body" type="box" pos="0 0 0.92" size="0.52 0.28 0.31" contype="0" conaffinity="0" rgba="0.88 0.88 0.82 0"/>
+      <geom name="cow_head" type="ellipsoid" pos="0.60 0 1.07" size="0.26 0.22 0.23" contype="0" conaffinity="0" rgba="0.87 0.84 0.77 0"/>
+      <geom name="cow_nose" type="ellipsoid" pos="0.81 0 0.99" size="0.13 0.15 0.10" contype="0" conaffinity="0" rgba="0.80 0.53 0.55 0"/>
+      <geom name="cow_spot_l" type="ellipsoid" pos="-0.08 0.275 1.00" size="0.22 0.015 0.17" contype="0" conaffinity="0" rgba="0.12 0.14 0.16 0"/>
+      <geom name="cow_spot_r" type="ellipsoid" pos="0.18 -0.275 0.99" size="0.18 0.015 0.13" contype="0" conaffinity="0" rgba="0.12 0.14 0.16 0"/>
+      <geom name="cow_leg_fl" type="capsule" fromto="0.35 0.19 0.65 0.35 0.19 0.08" size="0.07" contype="0" conaffinity="0" rgba="0.78 0.78 0.73 0"/>
+      <geom name="cow_leg_fr" type="capsule" fromto="0.35 -0.19 0.65 0.35 -0.19 0.08" size="0.07" contype="0" conaffinity="0" rgba="0.78 0.78 0.73 0"/>
+      <geom name="cow_leg_rl" type="capsule" fromto="-0.35 0.19 0.65 -0.35 0.19 0.08" size="0.07" contype="0" conaffinity="0" rgba="0.78 0.78 0.73 0"/>
+      <geom name="cow_leg_rr" type="capsule" fromto="-0.35 -0.19 0.65 -0.35 -0.19 0.08" size="0.07" contype="0" conaffinity="0" rgba="0.78 0.78 0.73 0"/>
+      <geom name="cow_tag" type="box" pos="-0.54 0 1.00" size="0.018 0.28 0.22" contype="0" conaffinity="0" rgba="0.96 0.10 0.90 0"/>
+    </body>
+
+    <body name="quad" pos="0 0 1.2">
+      <freejoint name="quad_free"/>
+      <inertial pos="0 0 0" mass="0.75" diaginertia="0.006 0.006 0.011"/>
+      <geom name="frame" type="box" size="0.095 0.055 0.027" mass="0" rgba="0.08 0.10 0.13 1"/>
+      <geom name="battery" type="box" pos="-0.025 0 0.045" size="0.06 0.037 0.022" mass="0" rgba="0.28 0.30 0.33 1"/>
+      <geom name="nose" type="box" pos="0.085 0 0.015" size="0.018 0.028 0.020" mass="0" rgba="0.96 0.82 0.18 1"/>
+      <geom name="arm_fl" type="capsule" fromto="0 0 0 0.13 0.13 0" size="0.012" mass="0" rgba="0.22 0.24 0.27 1"/>
+      <geom name="arm_fr" type="capsule" fromto="0 0 0 0.13 -0.13 0" size="0.012" mass="0" rgba="0.22 0.24 0.27 1"/>
+      <geom name="arm_rr" type="capsule" fromto="0 0 0 -0.13 -0.13 0" size="0.012" mass="0" rgba="0.22 0.24 0.27 1"/>
+      <geom name="arm_rl" type="capsule" fromto="0 0 0 -0.13 0.13 0" size="0.012" mass="0" rgba="0.22 0.24 0.27 1"/>
+      <geom name="prop_fl" type="cylinder" pos="0.13 0.13 0.012" size="0.062 0.003" mass="0" contype="0" conaffinity="0" rgba="0.15 0.88 0.65 0.5"/>
+      <geom name="prop_fr" type="cylinder" pos="0.13 -0.13 0.012" size="0.062 0.003" mass="0" contype="0" conaffinity="0" rgba="0.15 0.88 0.65 0.5"/>
+      <geom name="prop_rr" type="cylinder" pos="-0.13 -0.13 0.012" size="0.062 0.003" mass="0" contype="0" conaffinity="0" rgba="0.15 0.88 0.65 0.5"/>
+      <geom name="prop_rl" type="cylinder" pos="-0.13 0.13 0.012" size="0.062 0.003" mass="0" contype="0" conaffinity="0" rgba="0.15 0.88 0.65 0.5"/>
+      <site name="motor_fl" pos="0.13 0.13 0"/>
+      <site name="motor_fr" pos="0.13 -0.13 0"/>
+      <site name="motor_rr" pos="-0.13 -0.13 0"/>
+      <site name="motor_rl" pos="-0.13 0.13 0"/>
+      <camera name="fpv" pos="0.102 0 0.045" xyaxes="0 -1 0 0 0 1" fovy="95"/>
+      <camera name="chase" pos="-1.5 0 0.65" xyaxes="0 -1 0 0 0 1" fovy="60"/>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="fl" site="motor_fl" gear="0 0 1 0 0 0.012" ctrlrange="0 8"/>
+    <motor name="fr" site="motor_fr" gear="0 0 1 0 0 -0.012" ctrlrange="0 8"/>
+    <motor name="rr" site="motor_rr" gear="0 0 1 0 0 0.012" ctrlrange="0 8"/>
+    <motor name="rl" site="motor_rl" gear="0 0 1 0 0 -0.012" ctrlrange="0 8"/>
+  </actuator>
+</mujoco>

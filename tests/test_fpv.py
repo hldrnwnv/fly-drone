@@ -1,0 +1,58 @@
+import importlib.util
+import unittest
+
+
+@unittest.skipUnless(importlib.util.find_spec("mujoco"), "install fly-drone[fpv] for MuJoCo tests")
+class FPVPhysicsTests(unittest.TestCase):
+    def test_geometric_steering_passes_gate_with_stable_altitude(self):
+        from fly_drone.fpv import TARGETS, fly_fpv
+
+        result = fly_fpv(lambda angle: max(-1.0, min(1.0, angle / 0.7)), TARGETS["left"])
+        self.assertEqual(result["status"], "passed_gate")
+        self.assertLess(max(abs(frame["position"][2] - 1.2) for frame in result["trace"]), 0.15)
+        self.assertTrue(any(max(abs(angle) for angle in frame["rpy"][:2]) > 0.05
+                            for frame in result["trace"]))
+
+    def test_straight_flight_misses_offset_gate(self):
+        from fly_drone.fpv import TARGETS, fly_fpv
+
+        result = fly_fpv(lambda _angle: 0.0, TARGETS["left"])
+        self.assertEqual(result["status"], "missed_gate")
+
+    def test_same_fpv_frame_reports_opposite_gate_bearings(self):
+        from fly_drone.fpv import FPVQuad, TARGETS
+        from fly_drone.vision import GateVision
+
+        quad = FPVQuad()
+        with GateVision("left") as left, GateVision("right") as right:
+            left_image = left.observe(quad, TARGETS["left"], 0)
+            right_image = right.observe(quad, TARGETS["right"], 0)
+        self.assertEqual(left_image["frame_sha256"], right_image["frame_sha256"])
+        self.assertTrue(left_image["visible"] and right_image["visible"])
+        self.assertGreater(left_image["bearing"], 0.5)
+        self.assertLess(right_image["bearing"], -0.5)
+
+    def test_camera_guided_flight_with_dropped_frames(self):
+        from fly_drone.cli import geometric_controller
+        from fly_drone.fpv import TARGETS, fly_fpv
+        from fly_drone.vision import GateVision
+
+        with GateVision("left", scenario="dropout_30", seed=2026) as sensor:
+            result = fly_fpv(geometric_controller, TARGETS["left"], sensor=sensor)
+        self.assertEqual(result["status"], "passed_gate")
+        self.assertTrue(any(obs["reason"] == "dropout" for obs in result["control_observations"]))
+        self.assertEqual(result["decision_budget_ms"], 400)
+
+    def test_moving_target_is_seen_and_followed_by_geometry(self):
+        from fly_drone.chase import fly_chase
+        from fly_drone.cli import geometric_controller
+
+        result = fly_chase(geometric_controller, duration=18.0)
+        self.assertEqual(result["status"], "completed")
+        self.assertTrue(result["tracked"])
+        self.assertGreater(result["visible_decisions"] / result["total_decisions"], 0.9)
+        self.assertGreater(result["trace"][-1]["cow_position"][0], 12.0)
+
+
+if __name__ == "__main__":
+    unittest.main()

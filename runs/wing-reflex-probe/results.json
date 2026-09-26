@@ -1,0 +1,830 @@
+{
+  "input": "constant synthetic voltage to MaleCNS SApp08 on one side",
+  "amount_per_20ms_tick": 0.9,
+  "ticks": 100,
+  "seeds": 12,
+  "hypothesis": "left stimulus increases left-minus-right b1/b2 spikes; right stimulus decreases them",
+  "mean_left_effect": -0.6666666666666666,
+  "mean_right_effect": 0.3333333333333333,
+  "sign_consistent_seeds": 0,
+  "paired": [
+    {
+      "seed": 0,
+      "left_stimulus_effect": -4,
+      "right_stimulus_effect": -4
+    },
+    {
+      "seed": 1,
+      "left_stimulus_effect": -1,
+      "right_stimulus_effect": 0
+    },
+    {
+      "seed": 2,
+      "left_stimulus_effect": -2,
+      "right_stimulus_effect": 2
+    },
+    {
+      "seed": 3,
+      "left_stimulus_effect": 0,
+      "right_stimulus_effect": 0
+    },
+    {
+      "seed": 4,
+      "left_stimulus_effect": 0,
+      "right_stimulus_effect": 1
+    },
+    {
+      "seed": 5,
+      "left_stimulus_effect": -2,
+      "right_stimulus_effect": 1
+    },
+    {
+      "seed": 6,
+      "left_stimulus_effect": -1,
+      "right_stimulus_effect": 0
+    },
+    {
+      "seed": 7,
+      "left_stimulus_effect": 2,
+      "right_stimulus_effect": 1
+    },
+    {
+      "seed": 8,
+      "left_stimulus_effect": 0,
+      "right_stimulus_effect": 0
+    },
+    {
+      "seed": 9,
+      "left_stimulus_effect": 1,
+      "right_stimulus_effect": 1
+    },
+    {
+      "seed": 10,
+      "left_stimulus_effect": -1,
+      "right_stimulus_effect": 2
+    },
+    {
+      "seed": 11,
+      "left_stimulus_effect": 0,
+      "right_stimulus_effect": 0
+    }
+  ],
+  "records": [
+    {
+      "seed": 0,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 1,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 0,
+        "DLMn a, b_R": 0,
+        "DLMn c-f_L": 4,
+        "DLMn c-f_R": 4,
+        "DVMn 1a-c_L": 11,
+        "DVMn 1a-c_R": 8
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 1
+      },
+      "steering_left_minus_right": 0
+    },
+    {
+      "seed": 0,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 2,
+        "b2 MN_L": 1,
+        "b2 MN_R": 3,
+        "DLMn a, b_L": 0,
+        "DLMn a, b_R": 0,
+        "DLMn c-f_L": 3,
+        "DLMn c-f_R": 2,
+        "DVMn 1a-c_L": 6,
+        "DVMn 1a-c_R": 5
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 5
+      },
+      "steering_left_minus_right": -4
+    },
+    {
+      "seed": 0,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 2,
+        "b2 MN_L": 1,
+        "b2 MN_R": 3,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 7,
+        "DLMn c-f_R": 7,
+        "DVMn 1a-c_L": 8,
+        "DVMn 1a-c_R": 9
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 5
+      },
+      "steering_left_minus_right": -4
+    },
+    {
+      "seed": 1,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 1,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 3,
+        "DLMn c-f_R": 2,
+        "DVMn 1a-c_L": 4,
+        "DVMn 1a-c_R": 6
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 1
+      },
+      "steering_left_minus_right": 0
+    },
+    {
+      "seed": 1,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 1,
+        "b2 MN_L": 0,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 8,
+        "DLMn c-f_R": 6,
+        "DVMn 1a-c_L": 6,
+        "DVMn 1a-c_R": 7
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 2
+      },
+      "steering_left_minus_right": -1
+    },
+    {
+      "seed": 1,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 1,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 3,
+        "DLMn c-f_R": 3,
+        "DVMn 1a-c_L": 5,
+        "DVMn 1a-c_R": 7
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 1
+      },
+      "steering_left_minus_right": 0
+    },
+    {
+      "seed": 2,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 2,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 8,
+        "DLMn c-f_R": 9,
+        "DVMn 1a-c_L": 11,
+        "DVMn 1a-c_R": 9
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 2
+      },
+      "steering_left_minus_right": -1
+    },
+    {
+      "seed": 2,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 1,
+        "b2 MN_L": 1,
+        "b2 MN_R": 3,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 6,
+        "DLMn c-f_R": 7,
+        "DVMn 1a-c_L": 11,
+        "DVMn 1a-c_R": 7
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 4
+      },
+      "steering_left_minus_right": -3
+    },
+    {
+      "seed": 2,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 2,
+        "b2 MN_R": 2,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 4,
+        "DLMn c-f_R": 6,
+        "DVMn 1a-c_L": 8,
+        "DVMn 1a-c_R": 8
+      },
+      "steering_spikes": {
+        "L": 3,
+        "R": 2
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 3,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 9,
+        "DLMn c-f_R": 10,
+        "DVMn 1a-c_L": 10,
+        "DVMn 1a-c_R": 11
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 0
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 3,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 1,
+        "b2 MN_L": 2,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 5,
+        "DLMn c-f_R": 9,
+        "DVMn 1a-c_L": 7,
+        "DVMn 1a-c_R": 8
+      },
+      "steering_spikes": {
+        "L": 3,
+        "R": 2
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 3,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 2,
+        "b2 MN_L": 3,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 8,
+        "DLMn c-f_R": 9,
+        "DVMn 1a-c_L": 8,
+        "DVMn 1a-c_R": 12
+      },
+      "steering_spikes": {
+        "L": 4,
+        "R": 3
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 4,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 2,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 2,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 4,
+        "DLMn c-f_L": 6,
+        "DLMn c-f_R": 8,
+        "DVMn 1a-c_L": 9,
+        "DVMn 1a-c_R": 10
+      },
+      "steering_spikes": {
+        "L": 3,
+        "R": 2
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 4,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 2,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 2,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 3,
+        "DLMn c-f_L": 9,
+        "DLMn c-f_R": 6,
+        "DVMn 1a-c_L": 8,
+        "DVMn 1a-c_R": 5
+      },
+      "steering_spikes": {
+        "L": 3,
+        "R": 2
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 4,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 3,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 2,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 3,
+        "DLMn c-f_L": 7,
+        "DLMn c-f_R": 3,
+        "DVMn 1a-c_L": 7,
+        "DVMn 1a-c_R": 5
+      },
+      "steering_spikes": {
+        "L": 4,
+        "R": 2
+      },
+      "steering_left_minus_right": 2
+    },
+    {
+      "seed": 5,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 2,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 11,
+        "DLMn c-f_R": 15,
+        "DVMn 1a-c_L": 14,
+        "DVMn 1a-c_R": 13
+      },
+      "steering_spikes": {
+        "L": 0,
+        "R": 2
+      },
+      "steering_left_minus_right": -2
+    },
+    {
+      "seed": 5,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 1,
+        "b2 MN_L": 0,
+        "b2 MN_R": 3,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 10,
+        "DLMn c-f_R": 12,
+        "DVMn 1a-c_L": 12,
+        "DVMn 1a-c_R": 9
+      },
+      "steering_spikes": {
+        "L": 0,
+        "R": 4
+      },
+      "steering_left_minus_right": -4
+    },
+    {
+      "seed": 5,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 2,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 6,
+        "DLMn c-f_R": 8,
+        "DVMn 1a-c_L": 12,
+        "DVMn 1a-c_R": 11
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 2
+      },
+      "steering_left_minus_right": -1
+    },
+    {
+      "seed": 6,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 3,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 10,
+        "DLMn c-f_R": 9,
+        "DVMn 1a-c_L": 10,
+        "DVMn 1a-c_R": 11
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 1
+      },
+      "steering_left_minus_right": 0
+    },
+    {
+      "seed": 6,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 1,
+        "b2 MN_L": 1,
+        "b2 MN_R": 2,
+        "DLMn a, b_L": 4,
+        "DLMn a, b_R": 3,
+        "DLMn c-f_L": 10,
+        "DLMn c-f_R": 8,
+        "DVMn 1a-c_L": 10,
+        "DVMn 1a-c_R": 8
+      },
+      "steering_spikes": {
+        "L": 2,
+        "R": 3
+      },
+      "steering_left_minus_right": -1
+    },
+    {
+      "seed": 6,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 1,
+        "b2 MN_L": 1,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 0,
+        "DLMn c-f_L": 3,
+        "DLMn c-f_R": 2,
+        "DVMn 1a-c_L": 5,
+        "DVMn 1a-c_R": 5
+      },
+      "steering_spikes": {
+        "L": 2,
+        "R": 2
+      },
+      "steering_left_minus_right": 0
+    },
+    {
+      "seed": 7,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 3,
+        "DLMn a, b_R": 3,
+        "DLMn c-f_L": 4,
+        "DLMn c-f_R": 8,
+        "DVMn 1a-c_L": 8,
+        "DVMn 1a-c_R": 7
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 0
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 7,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 3,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 3,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 4,
+        "DLMn c-f_R": 6,
+        "DVMn 1a-c_L": 5,
+        "DVMn 1a-c_R": 6
+      },
+      "steering_spikes": {
+        "L": 4,
+        "R": 1
+      },
+      "steering_left_minus_right": 3
+    },
+    {
+      "seed": 7,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 2,
+        "b1 MN_R": 2,
+        "b2 MN_L": 3,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 3,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 3,
+        "DLMn c-f_R": 5,
+        "DVMn 1a-c_L": 6,
+        "DVMn 1a-c_R": 6
+      },
+      "steering_spikes": {
+        "L": 5,
+        "R": 3
+      },
+      "steering_left_minus_right": 2
+    },
+    {
+      "seed": 8,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 8,
+        "DLMn c-f_R": 8,
+        "DVMn 1a-c_L": 8,
+        "DVMn 1a-c_R": 7
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 0
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 8,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 6,
+        "DLMn c-f_R": 9,
+        "DVMn 1a-c_L": 8,
+        "DVMn 1a-c_R": 6
+      },
+      "steering_spikes": {
+        "L": 2,
+        "R": 1
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 8,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 5,
+        "DLMn c-f_R": 5,
+        "DVMn 1a-c_L": 6,
+        "DVMn 1a-c_R": 6
+      },
+      "steering_spikes": {
+        "L": 2,
+        "R": 1
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 9,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 8,
+        "DLMn c-f_R": 5,
+        "DVMn 1a-c_L": 7,
+        "DVMn 1a-c_R": 6
+      },
+      "steering_spikes": {
+        "L": 1,
+        "R": 0
+      },
+      "steering_left_minus_right": 1
+    },
+    {
+      "seed": 9,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 0,
+        "b2 MN_L": 1,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 6,
+        "DLMn c-f_R": 4,
+        "DVMn 1a-c_L": 9,
+        "DVMn 1a-c_R": 8
+      },
+      "steering_spikes": {
+        "L": 2,
+        "R": 0
+      },
+      "steering_left_minus_right": 2
+    },
+    {
+      "seed": 9,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 1,
+        "b2 MN_L": 2,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 5,
+        "DLMn c-f_R": 5,
+        "DVMn 1a-c_L": 7,
+        "DVMn 1a-c_R": 7
+      },
+      "steering_spikes": {
+        "L": 3,
+        "R": 1
+      },
+      "steering_left_minus_right": 2
+    },
+    {
+      "seed": 10,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 8,
+        "DLMn c-f_R": 8,
+        "DVMn 1a-c_L": 11,
+        "DVMn 1a-c_R": 9
+      },
+      "steering_spikes": {
+        "L": 0,
+        "R": 0
+      },
+      "steering_left_minus_right": 0
+    },
+    {
+      "seed": 10,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 2,
+        "b2 MN_L": 2,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 7,
+        "DLMn c-f_R": 7,
+        "DVMn 1a-c_L": 10,
+        "DVMn 1a-c_R": 7
+      },
+      "steering_spikes": {
+        "L": 2,
+        "R": 3
+      },
+      "steering_left_minus_right": -1
+    },
+    {
+      "seed": 10,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 1,
+        "b2 MN_L": 3,
+        "b2 MN_R": 0,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 8,
+        "DLMn c-f_R": 5,
+        "DVMn 1a-c_L": 10,
+        "DVMn 1a-c_R": 7
+      },
+      "steering_spikes": {
+        "L": 3,
+        "R": 1
+      },
+      "steering_left_minus_right": 2
+    },
+    {
+      "seed": 11,
+      "condition": "rest",
+      "motor_spikes": {
+        "b1 MN_L": 0,
+        "b1 MN_R": 0,
+        "b2 MN_L": 0,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 9,
+        "DLMn c-f_R": 7,
+        "DVMn 1a-c_L": 9,
+        "DVMn 1a-c_R": 12
+      },
+      "steering_spikes": {
+        "L": 0,
+        "R": 1
+      },
+      "steering_left_minus_right": -1
+    },
+    {
+      "seed": 11,
+      "condition": "L",
+      "motor_spikes": {
+        "b1 MN_L": 1,
+        "b1 MN_R": 2,
+        "b2 MN_L": 1,
+        "b2 MN_R": 1,
+        "DLMn a, b_L": 2,
+        "DLMn a, b_R": 2,
+        "DLMn c-f_L": 10,
+        "DLMn c-f_R": 11,
+        "DVMn 1a-c_L": 8,
+        "DVMn 1a-c_R": 11
+      },
+      "steering_spikes": {
+        "L": 2,
+        "R": 3
+      },
+      "steering_left_minus_right": -1
+    },
+    {
+      "seed": 11,
+      "condition": "R",
+      "motor_spikes": {
+        "b1 MN_L": 2,
+        "b1 MN_R": 2,
+        "b2 MN_L": 1,
+        "b2 MN_R": 2,
+        "DLMn a, b_L": 1,
+        "DLMn a, b_R": 1,
+        "DLMn c-f_L": 6,
+        "DLMn c-f_R": 6,
+        "DVMn 1a-c_L": 4,
+        "DVMn 1a-c_R": 8
+      },
+      "steering_spikes": {
+        "L": 3,
+        "R": 4
+      },
+      "steering_left_minus_right": -1
+    }
+  ]
+}

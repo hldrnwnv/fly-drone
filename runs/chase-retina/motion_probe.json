@@ -1,0 +1,206 @@
+{
+  "protocol": "same horizontal bright bar and 20 ms eye frames; reverse order vs stationary; 10 blank warmup ticks",
+  "limitations": "1D azimuth approximation and uncalibrated MaleCNS spiking dynamics",
+  "neural_ticks_per_condition": 60,
+  "photoreceptors": 6006,
+  "trials": [
+    {
+      "seed": 7,
+      "condition": "left_to_right",
+      "T4_T5_spikes": {
+        "T4a_L": 464,
+        "T4b_L": 482,
+        "T4c_L": 485,
+        "T4d_L": 505,
+        "T5a_L": 454,
+        "T5b_L": 497,
+        "T5c_L": 496,
+        "T5d_L": 567,
+        "T4a_R": 487,
+        "T4b_R": 558,
+        "T4c_R": 468,
+        "T4d_R": 501,
+        "T5a_R": 537,
+        "T5b_R": 572,
+        "T5c_R": 520,
+        "T5d_R": 568
+      }
+    },
+    {
+      "seed": 7,
+      "condition": "right_to_left",
+      "T4_T5_spikes": {
+        "T4a_L": 452,
+        "T4b_L": 461,
+        "T4c_L": 502,
+        "T4d_L": 481,
+        "T5a_L": 361,
+        "T5b_L": 393,
+        "T5c_L": 389,
+        "T5d_L": 454,
+        "T4a_R": 470,
+        "T4b_R": 559,
+        "T4c_R": 481,
+        "T4d_R": 516,
+        "T5a_R": 537,
+        "T5b_R": 591,
+        "T5c_R": 559,
+        "T5d_R": 588
+      }
+    },
+    {
+      "seed": 7,
+      "condition": "stationary",
+      "T4_T5_spikes": {
+        "T4a_L": 478,
+        "T4b_L": 494,
+        "T4c_L": 521,
+        "T4d_L": 516,
+        "T5a_L": 449,
+        "T5b_L": 489,
+        "T5c_L": 485,
+        "T5d_L": 552,
+        "T4a_R": 499,
+        "T4b_R": 561,
+        "T4c_R": 474,
+        "T4d_R": 518,
+        "T5a_R": 547,
+        "T5b_R": 578,
+        "T5c_R": 539,
+        "T5d_R": 578
+      }
+    },
+    {
+      "seed": 8,
+      "condition": "left_to_right",
+      "T4_T5_spikes": {
+        "T4a_L": 496,
+        "T4b_L": 522,
+        "T4c_L": 452,
+        "T4d_L": 425,
+        "T5a_L": 571,
+        "T5b_L": 594,
+        "T5c_L": 561,
+        "T5d_L": 605,
+        "T4a_R": 454,
+        "T4b_R": 466,
+        "T4c_R": 409,
+        "T4d_R": 433,
+        "T5a_R": 444,
+        "T5b_R": 492,
+        "T5c_R": 504,
+        "T5d_R": 534
+      }
+    },
+    {
+      "seed": 8,
+      "condition": "right_to_left",
+      "T4_T5_spikes": {
+        "T4a_L": 528,
+        "T4b_L": 547,
+        "T4c_L": 465,
+        "T4d_L": 461,
+        "T5a_L": 579,
+        "T5b_L": 617,
+        "T5c_L": 553,
+        "T5d_L": 598,
+        "T4a_R": 468,
+        "T4b_R": 492,
+        "T4c_R": 436,
+        "T4d_R": 449,
+        "T5a_R": 471,
+        "T5b_R": 518,
+        "T5c_R": 504,
+        "T5d_R": 549
+      }
+    },
+    {
+      "seed": 8,
+      "condition": "stationary",
+      "T4_T5_spikes": {
+        "T4a_L": 487,
+        "T4b_L": 504,
+        "T4c_L": 445,
+        "T4d_L": 411,
+        "T5a_L": 497,
+        "T5b_L": 481,
+        "T5c_L": 476,
+        "T5d_L": 517,
+        "T4a_R": 494,
+        "T4b_R": 544,
+        "T4c_R": 454,
+        "T4d_R": 475,
+        "T5a_R": 474,
+        "T5b_R": 544,
+        "T5c_R": 527,
+        "T5d_R": 578
+      }
+    },
+    {
+      "seed": 9,
+      "condition": "left_to_right",
+      "T4_T5_spikes": {
+        "T4a_L": 490,
+        "T4b_L": 553,
+        "T4c_L": 481,
+        "T4d_L": 439,
+        "T5a_L": 537,
+        "T5b_L": 666,
+        "T5c_L": 615,
+        "T5d_L": 588,
+        "T4a_R": 587,
+        "T4b_R": 679,
+        "T4c_R": 543,
+        "T4d_R": 545,
+        "T5a_R": 493,
+        "T5b_R": 580,
+        "T5c_R": 508,
+        "T5d_R": 545
+      }
+    },
+    {
+      "seed": 9,
+      "condition": "right_to_left",
+      "T4_T5_spikes": {
+        "T4a_L": 494,
+        "T4b_L": 548,
+        "T4c_L": 502,
+        "T4d_L": 436,
+        "T5a_L": 581,
+        "T5b_L": 688,
+        "T5c_L": 652,
+        "T5d_L": 623,
+        "T4a_R": 573,
+        "T4b_R": 656,
+        "T4c_R": 556,
+        "T4d_R": 523,
+        "T5a_R": 492,
+        "T5b_R": 594,
+        "T5c_R": 490,
+        "T5d_R": 547
+      }
+    },
+    {
+      "seed": 9,
+      "condition": "stationary",
+      "T4_T5_spikes": {
+        "T4a_L": 501,
+        "T4b_L": 566,
+        "T4c_L": 504,
+        "T4d_L": 452,
+        "T5a_L": 564,
+        "T5b_L": 709,
+        "T5c_L": 662,
+        "T5d_L": 616,
+        "T4a_R": 537,
+        "T4b_R": 635,
+        "T4c_R": 535,
+        "T4d_R": 503,
+        "T5a_R": 450,
+        "T5b_R": 547,
+        "T5c_R": 458,
+        "T5d_R": 502
+      }
+    }
+  ]
+}

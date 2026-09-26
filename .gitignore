@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+data/
+# Keep reports, metrics, videos, images, and small fitted readouts in Git.
+# Regenerate large camera-frame and perception-map arrays locally.
+runs/**/*_frames.npz
+runs/**/*_maps.npz
+runs/**/*.log
+runs/**/*.lock
+*.egg-info/
+.pytest_cache/
+.DS_Store

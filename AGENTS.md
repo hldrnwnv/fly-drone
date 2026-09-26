@@ -22,6 +22,10 @@ Track open questions in [GitHub Issues](https://github.com/hldrnwnv/fly-drone/is
 
 Every research report must cite the sources found during the investigation, preferably the original dataset, paper, or maintainer documentation for each substantive external claim. Record dataset version and file hashes when they affect reproducibility; distinguish source facts, implementation choices, observations, and interpretations. Include an infographic in every research report and link or embed it beside the relevant results. The infographic must show the experiment's inputs, controls, and key outcomes, label units and sample counts, remain legible without color alone, and be generated from saved data with its source code retained. Report negative and inconclusive results in the same way as positive ones.
 
+## Neuron and Connectome Wiki
+
+For work involving neuron types, MaleCNS wiring, or neural responses, start at `docs/neuro-wiki/README.md` and `docs/neuro-wiki/Карта нейронов.md`. Read `docs/neuro-wiki/AGENTS.md` before adding or changing wiki content. After a neural experiment produces saved results, use the repository's `neuro-wiki-curator` skill in `.agents/skills/` to review them for wiki updates. The Obsidian wiki links connect notes; the source-scoped claims and relationship types live in `docs/neuro-wiki/claims.jsonl`. Follow the local evidence rules when recording a finding, and keep experiment receipts in `runs/` and flight outcomes in `docs/research-results.md`.
+
 ## Commit & Pull Request Guidelines
 
 Use short imperative commit subjects, such as `Add DNa02 steering readout`. Fill `.github/PULL_REQUEST_TEMPLATE.md` when opening a PR: explain the changed behavior, list commands run, and include a replay or key metrics for simulation changes. Link an issue when applicable.

@@ -22,7 +22,7 @@
 
 Открытые вопросы и планы проверок ведём в [GitHub Issues](https://github.com/hldrnwnv/fly-drone/issues):
 
-- Зрение: [сравнение на сырых FPV-кадрах](https://github.com/hldrnwnv/fly-drone/issues/2) получило [отрицательную проверку для одного кодировщика и считывания](../runs/raw-fpv/report.md), но остаётся открытым до калибровки оптики и проверки обучения на временных последовательностях. [2D вход](https://github.com/hldrnwnv/fly-drone/issues/1) и [карта/скорость](https://github.com/hldrnwnv/fly-drone/issues/8) также не подтвердили устойчивый полезный сигнал.
+- Зрение: [сравнение на сырых FPV-кадрах](https://github.com/hldrnwnv/fly-drone/issues/2) получило [отрицательную проверку для одного кодировщика и считывания](../runs/raw-fpv/report.md), но остаётся открытым до [калибровки оптики](https://github.com/hldrnwnv/fly-drone/issues/13) и проверки обучения на временных последовательностях. [2D вход](https://github.com/hldrnwnv/fly-drone/issues/1) и [карта/скорость](https://github.com/hldrnwnv/fly-drone/issues/8) также не подтвердили устойчивый полезный сигнал; [контроль порядка кадров](https://github.com/hldrnwnv/fly-drone/issues/10) остаётся открытым.
 - Обоняние: [совместная обработка зрения и запаха в одном графе](https://github.com/hldrnwnv/fly-drone/issues/4). [Проверка истории шлейфа](https://github.com/hldrnwnv/fly-drone/issues/3) документирована выше.
 - Моторный контур: [нисходящий путь от мозга к крылу](https://github.com/hldrnwnv/fly-drone/issues/5) и [удержание высоты и крена без внешней помощи](https://github.com/hldrnwnv/fly-drone/issues/6).
 

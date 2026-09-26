@@ -7,6 +7,8 @@ data/
 runs/**/*_frames.npz
 !runs/retina-2d/stimulus_frames.npz
 !runs/retina-2d/grating/stimulus_frames.npz
+!runs/raw-fpv/corpus_frames.npz
+!runs/raw-fpv/open_loop_frames.npz
 runs/**/*_maps.npz
 runs/**/*.log
 runs/**/*.lock
